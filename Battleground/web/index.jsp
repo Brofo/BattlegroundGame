@@ -11,6 +11,10 @@
     <title>Battleground</title>
   </head>
   <body>
-    Website for upcoming Battleground game.
+    Website for upcoming Battleground game.<p>
+
+    <form action="servlets.TestServlet" method="get">
+      <input type="submit" value="Button">
+    </form>
   </body>
 </html>
