@@ -11,10 +11,12 @@
     <title>Battleground</title>
   </head>
   <body>
-    Website for upcoming Battleground game.<p>
+    This website will host the game called<p>
+      <font size="+5" color="#b22222"><b>Battleground</b></font><p>
+    Work is under progress.
 
     <form action="servlets.TestServlet" method="get">
-      <input type="submit" value="Button">
+      <input type="submit" value="Spoiler">
     </form>
   </body>
 </html>
