@@ -7,4 +7,12 @@
         <servlet-name>TestServlet</servlet-name>
         <servlet-class>servlets.TestServlet</servlet-class>
     </servlet>
+
+    <resource-ref>
+        <description>Database configuration</description>
+        <res-ref-name>jdbc/battlegroundDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
 </web-app>
