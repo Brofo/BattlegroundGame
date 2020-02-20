@@ -24,6 +24,11 @@ public class TestServlet extends javax.servlet.http.HttpServlet {
         PrintWriter out = response.getWriter();
         DbLib db = new DbLib(out);
 
-
+        try {
+            String gameID = db.createNewGameInDB();
+            out.print(gameID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

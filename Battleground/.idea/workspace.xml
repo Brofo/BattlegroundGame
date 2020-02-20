@@ -6,17 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="&quot;Added a little bit to the websit&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Battleground_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/database/DbLib.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/database/DbTool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/database/GenerateID.java" afterDir="false" />
+    <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/TestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/database/DbLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/DbLib.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/TestServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +63,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Tredje Semester/IS-202/Prosjekt/Roombooking/RoomBooking/Roombooking" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -184,7 +177,8 @@
       <workItem from="1581417223173" duration="2774000" />
       <workItem from="1581613747466" duration="39000" />
       <workItem from="1582033307151" duration="8799000" />
-      <workItem from="1582101764079" duration="16442000" />
+      <workItem from="1582101764079" duration="20037000" />
+      <workItem from="1582188418202" duration="5149000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;Commit with sample code&quot;">
       <created>1581365843906</created>
@@ -198,7 +192,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1581366372480</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="- Laget en rekke database funksjonalitet.&#10;- Laget kode som generer ID for player og game.">
+      <created>1582128625484</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1582128625484</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +221,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="&quot;Commit with sample code&quot;" />
     <MESSAGE value="&quot;Added a little bit to the websit&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Added a little bit to the websit&quot;" />
+    <MESSAGE value="- Laget en rekke database funksjonalitet.&#10;- Laget kode som generer ID for player og game." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Laget en rekke database funksjonalitet.&#10;- Laget kode som generer ID for player og game." />
   </component>
 </project>
