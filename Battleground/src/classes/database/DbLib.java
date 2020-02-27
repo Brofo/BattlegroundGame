@@ -36,8 +36,9 @@ public class DbLib {
      * @param playerName - The player name chosen be the player.
      * @param fighterName - The name of the fighter the player has chosen.
      * @throws SQLException
+     * @return playerID
      */
-    public void registerPlayerInDB(String playerName, String fighterName) throws SQLException {
+    public String registerPlayerInDB(String playerName, String fighterName) throws SQLException {
         con = new DbTool().logIn(out);
 
         GenerateID idGen = new GenerateID();
@@ -51,6 +52,7 @@ public class DbLib {
             pst.setString(3, fighterName);
             pst.executeUpdate();
 
+            return playerID;
         }
         catch (SQLException e) {
             System.err.println("Exception in method insertIntoDB   " + e);
@@ -58,6 +60,7 @@ public class DbLib {
         finally {
             closeConnections(out, con);
         }
+        return null;
     }
 
     /**
@@ -161,7 +164,7 @@ public class DbLib {
 
         }
         catch (SQLException e) {
-            System.out.println("Error in DbLib.checkForPlayersIngame() -  " + e);
+            System.out.println("Error in DbLib.checkReadyPlayers() -  " + e);
         }
         finally {
             closeConnections(out, con);

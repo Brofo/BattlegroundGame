@@ -7,9 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/browser/CookieFunctionality.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlets/menu/CreateGameServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlets/menu/StartPlayServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlets/menu/WaitForPlayerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/createdGame.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/game.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/startGame.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/testingJSP.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/database/DbLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/DbLib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/TestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/database/DbTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/DbTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +46,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -75,6 +87,12 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Colors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sindre\Desktop\Studie\BattlegroundProsjekt\Battleground\web" />
+      <recent name="C:\Users\Sindre\Desktop\Studie\BattlegroundProsjekt\Battleground\web\WEB-INF" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -178,7 +196,11 @@
       <workItem from="1581613747466" duration="39000" />
       <workItem from="1582033307151" duration="8799000" />
       <workItem from="1582101764079" duration="20037000" />
-      <workItem from="1582188418202" duration="5149000" />
+      <workItem from="1582188418202" duration="7151000" />
+      <workItem from="1582281079113" duration="141000" />
+      <workItem from="1582719097701" duration="2312000" />
+      <workItem from="1582730144665" duration="15784000" />
+      <workItem from="1582814665510" duration="6873000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;Commit with sample code&quot;">
       <created>1581365843906</created>
@@ -198,7 +220,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1582128625484</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Added more database related methods.">
+      <created>1582194722577</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1582194722578</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,6 +250,7 @@
     <MESSAGE value="&quot;Commit with sample code&quot;" />
     <MESSAGE value="&quot;Added a little bit to the websit&quot;" />
     <MESSAGE value="- Laget en rekke database funksjonalitet.&#10;- Laget kode som generer ID for player og game." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Laget en rekke database funksjonalitet.&#10;- Laget kode som generer ID for player og game." />
+    <MESSAGE value="Added more database related methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more database related methods." />
   </component>
 </project>
