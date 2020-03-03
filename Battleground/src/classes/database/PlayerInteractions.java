@@ -2,8 +2,6 @@ package classes.database;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
@@ -14,10 +12,11 @@ import java.util.concurrent.TimeUnit;
 public class PlayerInteractions {
 
     private PrintWriter out;
-    private Connection con;
+    private DbLib db;
 
     public PlayerInteractions(PrintWriter out) {
         this.out = out;
+        db = new DbLib(out);
     }
 
     /**
@@ -50,41 +49,28 @@ public class PlayerInteractions {
     }
 
     /**
-     * This method could be changed to "getOpponentAttribute" so it will get
-     * any attribute from the opponent, not just the name.
-     * @param playerID
-     * @param gameID
-     * @return
+     * Get a specific attribute from the opponent.
+     * @param attribute - The attribute to retrieve.
+     * @param playerID - The player's ID. (NOT the opponent's ID).
+     * @param gameID - The game ID.
+     * @return The value of the requested attribute.
      * @throws SQLException
      */
-    public String getOpponentName(String playerID, String gameID) throws SQLException {
-        con = new DbTool().logIn(out);
-        DbLib db = new DbLib(out);
+    public String getOpponentAttribute(String attribute, String playerID, String gameID) throws SQLException {
+        String opponentID = db.getOpponentID(playerID, gameID);
+        return db.getField(attribute, "player", "playerID", opponentID);
+    }
 
-        try {
-            String stmt =   "SELECT playerID FROM battlegroundDB.player WHERE gameID = ?";
-
-            PreparedStatement pst = con.prepareStatement(stmt);
-            pst.setString(1, gameID);
-            ResultSet searchResultSet = pst.executeQuery();
-
-            int i = 1;
-            while(searchResultSet.next()){
-                String opponentID = searchResultSet.getString(i);
-                if(!opponentID.equals(playerID)) {
-                    System.out.println(opponentID);
-                    return db.getField("playerName", "player", "playerID", opponentID);
-                }
-                i++;
-            }
-        }
-        catch (SQLException e){
-            out.println("Exeption in getOpponentName: " + e);
-        }finally {
-            if (con != null){
-                con.close();
-            }
-        }
-        return null;
+    /**
+     *  Update a specific attribute for the opponent.
+     * @param attribute - The attribute to update.
+     * @param attributeValue - The value to be inserted into the attribute.
+     * @param playerID - The ID of the player (NOT the opponent).
+     * @param gameID - The ID of the game.
+     * @throws SQLException
+     */
+    public void updateOpponentAttribute(String attribute, String attributeValue, String playerID, String gameID) throws SQLException {
+        String opponentID = db.getOpponentID(playerID, gameID);
+        db.updateTable("player", attribute, attributeValue, "playerID", opponentID);
     }
 }

@@ -36,7 +36,7 @@ public class WaitForPlayerServlet extends HttpServlet {
             boolean ready;
             ready = pi.waitForPlayerToJoin(playerID);
             if (ready) {
-                request.setAttribute("opponentName", pi.getOpponentName(playerID, gameID));
+                request.setAttribute("opponentName", pi.getOpponentAttribute("playerName", playerID, gameID));
                 request.setAttribute("playerName", db.getField("playerName", "player", "playerID", playerID));
                 request.getRequestDispatcher("game.jsp").forward(request, response);
             }

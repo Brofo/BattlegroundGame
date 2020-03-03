@@ -15,6 +15,7 @@ import java.sql.SQLException;
  *  -3-              getField
  *  -4-              checkReadyPlayers
  *  -5-              createNewGameInDB
+ *  -6-              getOpponentID
  *
  */
 public class DbLib {
@@ -197,6 +198,44 @@ public class DbLib {
         }
         finally {
             closeConnections(out, con);
+        }
+        return null;
+    }
+
+    /**
+     * - 6 -
+     *
+     *  This method is used to retrieve the opponent's playerID.
+     * @param playerID - The ID of the player (NOT the opponent).
+     * @param gameID - The ID of the game.
+     * @return The attribute.
+     * @throws SQLException
+     */
+    public String getOpponentID(String playerID, String gameID) throws SQLException {
+        con = new DbTool().logIn(out);
+
+        try {
+            String stmt =   "SELECT playerID FROM battlegroundDB.player WHERE gameID = ?";
+
+            PreparedStatement pst = con.prepareStatement(stmt);
+            pst.setString(1, gameID);
+            ResultSet searchResultSet = pst.executeQuery();
+
+            int i = 1;
+            while(searchResultSet.next()){
+                String opponentID = searchResultSet.getString(i);
+                if(!opponentID.equals(playerID)) {
+                    return opponentID;
+                }
+                i++;
+            }
+        }
+        catch (SQLException e){
+            out.println("Exeption in getOpponentID: " + e);
+        }finally {
+            if (con != null){
+                con.close();
+            }
         }
         return null;
     }
