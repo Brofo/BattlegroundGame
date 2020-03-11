@@ -22,13 +22,8 @@ public class TestServlet extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         PrintWriter out = response.getWriter();
-        DbLib db = new DbLib(out);
 
-        try {
-            String gameID = db.createNewGameInDB();
-            out.print(gameID);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        String gameID = request.getParameter("gameID");
+        out.println(gameID);
     }
 }

@@ -17,7 +17,7 @@
 
     <form action="servlets.menu.WaitForPlayerServlet" method="get">
         <input type="text" name="gameID">
-        <input type="submit" value="Join game">
+        <input type="submit" value="Join Game">
     </form>
 </body>
 </html>

@@ -9,8 +9,11 @@
     <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/database/DbLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/DbLib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/menu/WaitForPlayerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/menu/WaitForPlayerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/TestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/menu/CreateGameServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/menu/CreateGameServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/createdGame.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/createdGame.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/game.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/game.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/startGame.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/startGame.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +194,11 @@
       <workItem from="1582719097701" duration="2312000" />
       <workItem from="1582730144665" duration="15784000" />
       <workItem from="1582814665510" duration="7752000" />
-      <workItem from="1583241352976" duration="4209000" />
+      <workItem from="1583241352976" duration="7580000" />
+      <workItem from="1583755730887" duration="225000" />
+      <workItem from="1583842542676" duration="27000" />
+      <workItem from="1583844280320" duration="534000" />
+      <workItem from="1583942463640" duration="7213000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;Commit with sample code&quot;">
       <created>1581365843906</created>
@@ -223,7 +230,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1582821847007</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="- Added methods to easier get and update opponent values.">
+      <created>1583246392626</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1583246392627</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +262,7 @@
     <MESSAGE value="- Laget en rekke database funksjonalitet.&#10;- Laget kode som generer ID for player og game." />
     <MESSAGE value="Added more database related methods." />
     <MESSAGE value="Added basic html.&#10;Two players can now connect to one another." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added basic html.&#10;Two players can now connect to one another." />
+    <MESSAGE value="- Added methods to easier get and update opponent values." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added methods to easier get and update opponent values." />
   </component>
 </project>

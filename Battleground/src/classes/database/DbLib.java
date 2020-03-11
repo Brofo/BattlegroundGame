@@ -221,13 +221,12 @@ public class DbLib {
             pst.setString(1, gameID);
             ResultSet searchResultSet = pst.executeQuery();
 
-            int i = 1;
+            searchResultSet.beforeFirst();
             while(searchResultSet.next()){
-                String opponentID = searchResultSet.getString(i);
+                String opponentID = searchResultSet.getString(1);
                 if(!opponentID.equals(playerID)) {
                     return opponentID;
                 }
-                i++;
             }
         }
         catch (SQLException e){
