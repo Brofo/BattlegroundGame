@@ -35,8 +35,11 @@ public class StartPlayServlet extends HttpServlet {
 
             Cookie playerCookie = new Cookie("playerID", playerID);
             playerCookie.setMaxAge(-1); //The cookie wil be deleted when the player closes the browser.
+            Cookie fighterCookie = new Cookie("fighter", fighterName);
+            fighterCookie.setMaxAge(-1);
 
             response.addCookie(playerCookie);
+            response.addCookie(fighterCookie);
             request.getRequestDispatcher("startGame.jsp").forward(request, response);
         } catch (SQLException e) {
             out.println("Error in StartPlayServlet:  " + e);

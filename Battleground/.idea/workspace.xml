@@ -7,13 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/fighterModule/AbilityAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/fighterModule/AbilityDescription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/fighterModule/SelectFighter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterChad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/gameAction.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/gameWait.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/database/DbLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/DbLib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/TestServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/menu/CreateGameServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/menu/CreateGameServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/createdGame.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/createdGame.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/game.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/game.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/startGame.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/startGame.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/menu/StartPlayServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/menu/StartPlayServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/menu/WaitForPlayerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/menu/WaitForPlayerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/game.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameReady.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +206,11 @@
       <workItem from="1583755730887" duration="225000" />
       <workItem from="1583842542676" duration="27000" />
       <workItem from="1583844280320" duration="534000" />
-      <workItem from="1583942463640" duration="7213000" />
+      <workItem from="1583942463640" duration="9187000" />
+      <workItem from="1584007393018" duration="17143000" />
+      <workItem from="1584042362843" duration="7485000" />
+      <workItem from="1584090867990" duration="261000" />
+      <workItem from="1584091432200" duration="5765000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;Commit with sample code&quot;">
       <created>1581365843906</created>
@@ -236,7 +248,13 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1583246392627</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="- Fixed a bug when two players join">
+      <created>1583949740007</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1583949740008</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +281,7 @@
     <MESSAGE value="Added more database related methods." />
     <MESSAGE value="Added basic html.&#10;Two players can now connect to one another." />
     <MESSAGE value="- Added methods to easier get and update opponent values." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added methods to easier get and update opponent values." />
+    <MESSAGE value="- Fixed a bug when two players join" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed a bug when two players join" />
   </component>
 </project>

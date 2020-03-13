@@ -3,6 +3,8 @@ package servlets.menu;
 import classes.browser.CookieFunctionality;
 import classes.database.DbLib;
 import classes.database.PlayerInteractions;
+import classes.fighterModule.SelectFighter;
+import classes.fighterModule.fighters.Fighter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,15 +32,21 @@ public class WaitForPlayerServlet extends HttpServlet {
         String playerID = cf.getValue(existingCookies, "playerID");
 
         try {
+            //Put the gameID into the database for the player, and also in a new Cookie.
             String gameID = request.getParameter("gameID");
             db.updateTable("player", "gameID", gameID, "playerID", playerID);
+            Cookie gameCookie = new Cookie("gameID", gameID);
+            gameCookie.setMaxAge(-1); //The cookie wil be deleted when the player closes the browser.
+            response.addCookie(gameCookie);
 
             boolean ready;
             ready = pi.waitForPlayerToJoin(playerID);
             if (ready) {
                 request.setAttribute("opponentName", pi.getOpponentAttribute("playerName", playerID, gameID));
+                request.setAttribute("opponentFighterName", pi.getOpponentAttribute("fighterName", playerID, gameID));
                 request.setAttribute("playerName", db.getField("playerName", "player", "playerID", playerID));
-                request.getRequestDispatcher("game.jsp").forward(request, response);
+                request.setAttribute("playerFighterName", db.getField("fighterName", "player", "playerID", playerID));
+                request.getRequestDispatcher("gameReady.jsp").forward(request, response);
             }
             else {
                 out.println("No player found.");

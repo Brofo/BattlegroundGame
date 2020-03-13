@@ -15,15 +15,12 @@
 
       <form action="servlets.menu.StartPlayServlet" method="get">
         Choose a username:
-        <input type="text" name="playerName"><br>
+        <input type="text" name="playerName" value="Player"><br>
         Choose a fighter:
         <select id="fighter" name="fighterName">
-          <option name="Fighter1">Fighter1</option>
-          <option name="Fighter2">Fighter2</option>
-          <option name="Fighter3">Fighter3</option>
+          <option name="Chad">Chad</option>
         </select><br>
         <input type="submit" value="Play!">
       </form>
-
   </body>
 </html>
