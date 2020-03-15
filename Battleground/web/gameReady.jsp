@@ -11,8 +11,8 @@
     <title>Battleground Game</title>
 </head>
 <body>
-    Your name: ${playerName}  Fighter: ${playerFighterName}<br>
-    Opponent name: ${opponentName}  Fighter: ${opponentFighterName}<br>
+    Your name: ${playerName}  Fighter: ${playerFighter}<br>
+    Opponent name: ${opponentName}  Fighter: ${opponentFighter}<br>
     <form action="servlets.game.PlayersReadyServlet" method="get">
         <input type="submit" value="READY">
     </form>

@@ -11,8 +11,20 @@
     <title>Title</title>
 </head>
 <body>
-    Action<br>
-    Player Health: ${playerHealth} <br>
-    Opponent health: ${opponentHealth}
+    <font size="+2">${playerName} [${playerFighter}]</font> Life left: ${playerLife} <br>
+    Health: ${playerHealth} <br>
+    Energy: ${playerEnergy} <br>
+    Damage: ${playerDamage} <br>
+    Armour: ${playerArmour} <br>
+    Critical chance: ${playerCritical} <br>
+    Dodge chance: ${playerDodge} <br> <br>
+
+    <font size="+2">${opponentName} [${opponentFighter}]</font> Life left: ${opponentLife} <br>
+    Health: ${opponentHealth} <br>
+    Energy: ${opponentEnergy} <br>
+    Damage: ${opponentDamage} <br>
+    Armour: ${opponentArmour} <br>
+    Critical chance: ${opponentCritical} <br>
+    Dodge chance: ${opponentDodge} <br> <br>
 </body>
 </html>

@@ -22,4 +22,6 @@ public class AbilityDescription {
     public String getDescription() {
         return description;
     }
+
+    public int getEnergyCost() { return energyCost; }
 }

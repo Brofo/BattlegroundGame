@@ -1,14 +1,35 @@
 package classes.browser;
 
 import classes.fighterModule.AbilityAction;
+import classes.fighterModule.AbilityDescription;
+import classes.fighterModule.SelectFighter;
+import classes.fighterModule.fighters.Fighter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddRequestParameters {
+    private PrintWriter out;
+    private HttpServletRequest request;
 
-    public void addFighterParameters(HttpServletRequest request, PrintWriter out, String playerID, String gameID) throws SQLException {
+    public AddRequestParameters(HttpServletRequest request, PrintWriter out) {
+        this.out = out;
+        this.request = request;
+    }
+
+    public void addCookieNameParameters(Cookie cookies[]) {
+        CookieFunctionality cf = new CookieFunctionality();
+        request.setAttribute("playerName", cf.getValue(cookies, "playerName"));
+        request.setAttribute("playerFighter", cf.getValue(cookies, "playerFighter"));
+        request.setAttribute("opponentName", cf.getValue(cookies, "opponentName"));
+        request.setAttribute("opponentFighter", cf.getValue(cookies, "opponentFighter"));
+    }
+
+    public void addFighterParameters(String playerID, String gameID) throws SQLException {
         AbilityAction action = new AbilityAction(out);
 
         request.setAttribute("playerLife", action.getPlayerValue("life", playerID));
@@ -26,5 +47,30 @@ public class AddRequestParameters {
         request.setAttribute("opponentArmour", action.getOpponentValue("armour", playerID, gameID));
         request.setAttribute("opponentCritical", action.getOpponentValue("critical_chance", playerID, gameID) + "%");
         request.setAttribute("opponentDodge", action.getOpponentValue("dodge_chance", playerID, gameID) + "%");
+    }
+
+    public void addAbilityParameters(String fighterName, String playerID, String gameID) {
+        Fighter fighter = new SelectFighter(out).getFighter(fighterName, playerID, gameID);
+        HashMap<String, AbilityDescription> abilityMap = fighter.getAbilityMap();
+
+        AbilityDescription basicAttack = abilityMap.get("basicAttack");
+        request.setAttribute("basicAttack", basicAttack.getName());
+        request.setAttribute("basicAttackDesc", basicAttack.getDescription() + " (Restores 1 energy)");
+        request.setAttribute("basicAttackEnergy", basicAttack.getEnergyCost());
+
+        AbilityDescription abilityOne = abilityMap.get("abilityOne");
+        request.setAttribute("abilityOne", abilityOne.getName());
+        request.setAttribute("abilityOneDesc", abilityOne.getDescription());
+        request.setAttribute("abilityOneEnergy", abilityOne.getEnergyCost());
+
+        AbilityDescription abilityTwo = abilityMap.get("abilityTwo");
+        request.setAttribute("abilityTwo", abilityTwo.getName());
+        request.setAttribute("abilityTwoDesc", abilityTwo.getDescription());
+        request.setAttribute("abilityTwoEnergy", abilityTwo.getEnergyCost());
+
+        AbilityDescription abilityThree = abilityMap.get("abilityThree");
+        request.setAttribute("abilityThree", abilityThree.getName());
+        request.setAttribute("abilityThreeDesc", abilityThree.getDescription());
+        request.setAttribute("abilityThreeEnergy", abilityThree.getEnergyCost());
     }
 }

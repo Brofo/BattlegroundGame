@@ -43,6 +43,7 @@ public abstract class Fighter {
     public void basicAttack() throws SQLException {
         syncFighterWithDB();
         dealDamageToOpponent(this.damage);
+        useEnergy(-1); //Negative one energy is spent, because we gain one energy.
     }
 
     public abstract HashMap<String, AbilityDescription> getAbilityMap();

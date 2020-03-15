@@ -1,5 +1,8 @@
 package classes.database;
 
+import classes.fighterModule.SelectFighter;
+import classes.fighterModule.fighters.Fighter;
+
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -237,6 +240,28 @@ public class DbLib {
             }
         }
         return null;
+    }
+
+    public void registerFighterValuesInDB(String playerID, String gameID, String fighterName) {
+        Fighter fighter = new SelectFighter(out).getFighter(fighterName, playerID, gameID);
+        String health = Double.toString(fighter.getHealth());
+        String energy = Integer.toString(fighter.getEnergy());
+        String damage = Double.toString(fighter.getDamage());
+        String armour = Double.toString(fighter.getArmour());
+        String critical = Double.toString(fighter.getCritical_chance());
+        String dodge = Double.toString(fighter.getDodge_chance());
+
+        try {
+            updateTable("player", "health", health, "playerID", playerID);
+            updateTable("player", "energy", energy, "playerID", playerID);
+            updateTable("player", "damage", damage, "playerID", playerID);
+            updateTable("player", "armour", armour, "playerID", playerID);
+            updateTable("player", "critical_chance", critical, "playerID", playerID);
+            updateTable("player", "dodge_chance", dodge, "playerID", playerID);
+        }
+        catch (SQLException e) {
+            System.out.println("Error in DbLib registerFighterValuesInDB() " + e);
+        }
     }
 
     /**

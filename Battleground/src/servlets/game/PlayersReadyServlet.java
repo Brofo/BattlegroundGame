@@ -23,6 +23,7 @@ public class PlayersReadyServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         CookieFunctionality cf = new CookieFunctionality();
         PlayerInteractions pi = new PlayerInteractions(out);
+        AddRequestParameters addParam = new AddRequestParameters(request, out);
 
         Cookie existingCookies[] = request.getCookies();
         String playerID = cf.getValue(existingCookies, "playerID");
@@ -30,7 +31,10 @@ public class PlayersReadyServlet extends HttpServlet {
 
         int ready = pi.selectRandomPlayerToStart(playerID, gameID);
             try {
-                new AddRequestParameters().addFighterParameters(request, out, playerID, gameID);
+                addParam.addFighterParameters(playerID, gameID);
+                addParam.addCookieNameParameters(existingCookies);
+
+
                 if(ready == 0) {
                     request.getRequestDispatcher("gameWait.jsp").forward(request, response);
                 }
