@@ -4,8 +4,6 @@ import classes.browser.AddRequestParameters;
 import classes.browser.CookieFunctionality;
 import classes.database.DbLib;
 import classes.database.PlayerInteractions;
-import classes.fighterModule.SelectFighter;
-import classes.fighterModule.fighters.Fighter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,11 +26,10 @@ public class WaitForPlayerServlet extends HttpServlet {
         DbLib db = new DbLib(out);
         CookieFunctionality cf = new CookieFunctionality();
         PlayerInteractions pi = new PlayerInteractions(out);
-        AddRequestParameters addRP = new AddRequestParameters(request, out);
+        AddRequestParameters addParam = new AddRequestParameters(request, out);
 
-        Cookie existingCookies[] = request.getCookies();
-        String playerID = cf.getValue(existingCookies, "playerID");
-        String playerFighter = cf.getValue(existingCookies, "playerFighter");
+        String playerID = cf.getValue(request, "playerID");
+        String playerFighter = cf.getValue(request, "playerFighter");
 
         try {
             //Put the gameID into the database for the player, and also in a new Cookie.
@@ -59,10 +56,9 @@ public class WaitForPlayerServlet extends HttpServlet {
                 response.addCookie(opponentNameCookie);
                 response.addCookie(opponentFighterCookie);
 
-                //Adding the new cookies in order to set them as parameters.
-                cf.replaceCookieInArray(existingCookies, "opponentName", opponentName);
-                cf.replaceCookieInArray(existingCookies, "opponentFighter", opponentFighter);
-                addRP.addCookieNameParameters(existingCookies);
+                addParam.addCookieNameParameters();
+                request.setAttribute("opponentName", opponentName);
+                request.setAttribute("opponentFighter", opponentFighter);
                 request.getRequestDispatcher("gameReady.jsp").forward(request, response);
             }
             else {

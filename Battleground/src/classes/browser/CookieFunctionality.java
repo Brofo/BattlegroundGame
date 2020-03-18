@@ -1,18 +1,18 @@
 package classes.browser;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class CookieFunctionality {
 
     /**
      * This method will return the value of the specified cookie.
-     * @param cookies An array of all cookies that are stored in the client's browser.
      * @param cookieName Name of the cookie that will have its value retrieved.
      * @return
      */
-    public String getValue(Cookie cookies[], String cookieName) {
-
+    public String getValue(HttpServletRequest request, String cookieName) {
+        Cookie cookies[] = request.getCookies();
         int i = 0;
         while (i < cookies.length) {
             String cookie = cookies[i].getName();
@@ -21,7 +21,7 @@ public class CookieFunctionality {
             }
             i++;
         }
-        System.err.println("Error in classes.browser.CookieHandler.java - Can not find value of Cookie.");
+        System.err.println("Error in classes.browser.CookieFunctionality.java - Can not find value of Cookie.");
         return null;
     }
 

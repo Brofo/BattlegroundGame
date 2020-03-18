@@ -40,16 +40,17 @@ public abstract class Fighter {
     /**
      * Basic attack applies to all fighters.
      */
-    public void basicAttack() throws SQLException {
+    public boolean basicAttack() throws SQLException {
         syncFighterWithDB();
         dealDamageToOpponent(this.damage);
         useEnergy(-1); //Negative one energy is spent, because we gain one energy.
+        return true; //Always enough energy to use basic attack.
     }
 
     public abstract HashMap<String, AbilityDescription> getAbilityMap();
-    public abstract void abilityOne() throws SQLException;
-    public abstract void abilityTwo() throws SQLException;
-    public abstract void abilityThree() throws SQLException;
+    public abstract boolean abilityOne() throws SQLException;
+    public abstract boolean abilityTwo() throws SQLException;
+    public abstract boolean abilityThree() throws SQLException;
 
     public abstract void setHealth();
     public abstract void setEnergy();
@@ -82,22 +83,20 @@ public abstract class Fighter {
         return dodge_chance;
     }
 
-    protected void dealDamageToOpponent(double totalDamageToDeal) throws SQLException {
-        double opponentHealth = Double.parseDouble(action.getOpponentValue("health", playerID, gameID));
-        double damageToDeal = calculateDamage(totalDamageToDeal);
-        String opponentNewHealth = Double.toString(opponentHealth - damageToDeal);
-        action.changeOpponentValue(playerID, gameID, "health", opponentNewHealth);
-    }
-
-    protected void useEnergy(int amount) throws SQLException {
-        energy = energy - amount;
-        action.changeOwnValue(playerID, "energy", Integer.toString(energy));
+    public boolean useAbility(String ability) throws SQLException {
+        switch(ability) {
+            case "basicAttack" : return basicAttack();
+            case "abilityOne" : return abilityOne();
+            case "abilityTwo" : return abilityTwo();
+            case "abilityThree" : return abilityThree();
+        }
+        return false;
     }
 
     /**
      * Get all the fighter's attributes from the database, and update the fields.
      */
-    public void syncFighterWithDB() {
+    protected void syncFighterWithDB() {
         try {
             health = Integer.parseInt(action.getPlayerValue("health", playerID));
             energy = Integer.parseInt(action.getPlayerValue("energy", playerID));
@@ -109,6 +108,18 @@ public abstract class Fighter {
         catch(SQLException e) {
             System.out.println("Error in classes.fighterModule.fighters.Fighter - syncFighterWithDB()  " + e);
         }
+    }
+
+    protected void dealDamageToOpponent(double totalDamageToDeal) throws SQLException {
+        double opponentHealth = Double.parseDouble(action.getOpponentValue("health", playerID, gameID));
+        double damageToDeal = calculateDamage(totalDamageToDeal);
+        String opponentNewHealth = Double.toString(opponentHealth - damageToDeal);
+        action.changeOpponentValue(playerID, gameID, "health", opponentNewHealth);
+    }
+
+    protected void useEnergy(int amount) throws SQLException {
+        energy = energy - amount;
+        action.changeOwnValue(playerID, "energy", Integer.toString(energy));
     }
 
     /**

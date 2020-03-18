@@ -19,6 +19,22 @@
     Critical chance: ${playerCritical} <br>
     Dodge chance: ${playerDodge} <br> <br>
 
+    <form action="servlets.game.UseAbilityServlet" method="get">
+        <font size="+3">Your turn. Use ability: </font><br>
+        <input type="submit" value="${basicAttack}" name="basicAttack">
+        ${basicAttackDesc} | ${basicAttackEnergy}<br>
+
+        <input type="submit" value="${abilityOne}" name="abilityOne">
+        ${abilityOneDesc} | ${abilityOneEnergy}<br>
+
+        <input type="submit" value="${abilityTwo}" name="abilityTwo">
+        ${abilityTwoDesc} | ${abilityTwoEnergy}<br>
+
+        <input type="submit" value="${abilityThree}" name="abilityThree">
+        ${abilityThreeDesc} | ${abilityThreeEnergy}
+    </form>
+    <font color="red" size="+1">${notEnoughEnergyError}</font><br>
+
     <font size="+2">${opponentName} [${opponentFighter}]</font> Life left: ${opponentLife} <br>
     Health: ${opponentHealth} <br>
     Energy: ${opponentEnergy} <br>

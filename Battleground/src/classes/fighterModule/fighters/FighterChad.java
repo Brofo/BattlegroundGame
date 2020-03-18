@@ -14,10 +14,10 @@ public class FighterChad extends Fighter {
 
         //Add the name and description of each ability for this fighter:
         abilityMap = new HashMap<>();
-        abilityMap.put("basicAttack", new AbilityDescription("Punch", "Basic Attack [" + damage + "] damage", 0));
-        abilityMap.put("abilityOne", new AbilityDescription("Throw beerpong ball", "Deals [" + damage * 1.5 + "] damage", 3));
-        abilityMap.put("abilityTwo", new AbilityDescription("Pass out", "Restores [2] energy", 0));
-        abilityMap.put("abilityThree", new AbilityDescription("Drunken Rage", "Deals [" + damage * 3 + "] damage", 8));
+        abilityMap.put("basicAttack", new AbilityDescription("Punch", "Basic Attack [" + damage + " damage]", 0));
+        abilityMap.put("abilityOne", new AbilityDescription("Throw beerpong ball", "[" + damage * 1.5 + " damage]", 3));
+        abilityMap.put("abilityTwo", new AbilityDescription("Pass out", "[Restores 2 energy]", 0));
+        abilityMap.put("abilityThree", new AbilityDescription("Drunken Rage", "[" + damage * 3 + " damage]", 8));
     }
 
     @Override
@@ -26,23 +26,34 @@ public class FighterChad extends Fighter {
     }
 
     @Override
-    public void abilityOne() throws SQLException {
+    public boolean abilityOne() throws SQLException {
         syncFighterWithDB();
-        dealDamageToOpponent(this.damage * 1.5);
-        useEnergy(3);
+        int energyCost = 3;
+        if (this.energy >= 3) {
+            dealDamageToOpponent(this.damage * 1.5);
+            useEnergy(energyCost);
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public void abilityTwo() throws SQLException {
+    public boolean abilityTwo() throws SQLException {
         syncFighterWithDB();
         useEnergy(-2); //Negative 2 energy is spent, because we gain 2 energy.
+        return true;
     }
 
     @Override
-    public void abilityThree() throws SQLException {
+    public boolean abilityThree() throws SQLException {
         syncFighterWithDB();
-        dealDamageToOpponent(this.damage * 3);
-        useEnergy(8);
+        int energyCost = 8;
+        if (this.energy >= energyCost) {
+            dealDamageToOpponent(this.damage * 3);
+            useEnergy(energyCost);
+            return true;
+        }
+        return false;
     }
 
     @Override

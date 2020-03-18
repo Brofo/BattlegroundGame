@@ -5,12 +5,10 @@ import classes.fighterModule.AbilityDescription;
 import classes.fighterModule.SelectFighter;
 import classes.fighterModule.fighters.Fighter;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.Map;
 
 public class AddRequestParameters {
     private PrintWriter out;
@@ -21,12 +19,12 @@ public class AddRequestParameters {
         this.request = request;
     }
 
-    public void addCookieNameParameters(Cookie cookies[]) {
+    public void addCookieNameParameters() {
         CookieFunctionality cf = new CookieFunctionality();
-        request.setAttribute("playerName", cf.getValue(cookies, "playerName"));
-        request.setAttribute("playerFighter", cf.getValue(cookies, "playerFighter"));
-        request.setAttribute("opponentName", cf.getValue(cookies, "opponentName"));
-        request.setAttribute("opponentFighter", cf.getValue(cookies, "opponentFighter"));
+        request.setAttribute("playerName", cf.getValue(request, "playerName"));
+        request.setAttribute("playerFighter", cf.getValue(request, "playerFighter"));
+        request.setAttribute("opponentName", cf.getValue(request, "opponentName"));
+        request.setAttribute("opponentFighter", cf.getValue(request, "opponentFighter"));
     }
 
     public void addFighterParameters(String playerID, String gameID) throws SQLException {
@@ -49,14 +47,14 @@ public class AddRequestParameters {
         request.setAttribute("opponentDodge", action.getOpponentValue("dodge_chance", playerID, gameID) + "%");
     }
 
-    public void addAbilityParameters(String fighterName, String playerID, String gameID) {
-        Fighter fighter = new SelectFighter(out).getFighter(fighterName, playerID, gameID);
+    public void addAbilityParameters(String playerFighter, String playerID, String gameID) {
+        Fighter fighter = new SelectFighter(out).getFighter(playerFighter, playerID, gameID);
         HashMap<String, AbilityDescription> abilityMap = fighter.getAbilityMap();
 
         AbilityDescription basicAttack = abilityMap.get("basicAttack");
         request.setAttribute("basicAttack", basicAttack.getName());
-        request.setAttribute("basicAttackDesc", basicAttack.getDescription() + " (Restores 1 energy)");
-        request.setAttribute("basicAttackEnergy", basicAttack.getEnergyCost());
+        request.setAttribute("basicAttackDesc", basicAttack.getDescription() + " (Restores 1 energy) ");
+        request.setAttribute("basicAttackEnergy", "[" + basicAttack.getEnergyCost() + " energy cost]");
 
         AbilityDescription abilityOne = abilityMap.get("abilityOne");
         request.setAttribute("abilityOne", abilityOne.getName());

@@ -19,6 +19,7 @@ import java.sql.SQLException;
  *  -4-              checkReadyPlayers
  *  -5-              createNewGameInDB
  *  -6-              getOpponentID
+ *  -7-              registerFighterValuesInDB
  *
  */
 public class DbLib {

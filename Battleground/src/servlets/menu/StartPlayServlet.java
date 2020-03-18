@@ -27,7 +27,6 @@ public class StartPlayServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         DbLib db = new DbLib(out);
-        CookieFunctionality cf = new CookieFunctionality();
 
         String playerName = request.getParameter("playerName");
         String fighterName = request.getParameter("fighterName");
@@ -47,6 +46,8 @@ public class StartPlayServlet extends HttpServlet {
             Cookie opponentFighterCookie = new Cookie("opponentFighter", "");
             opponentFighterCookie.setMaxAge(-1);
 
+            response.addCookie(opponentFighterCookie);
+            response.addCookie(opponentNameCookie);
             response.addCookie(playerIDCookie);
             response.addCookie(fighterCookie);
             response.addCookie(playerNameCookie);

@@ -1,5 +1,8 @@
 package classes.database;
 
+import classes.browser.CookieFunctionality;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Random;
@@ -48,18 +51,18 @@ public class PlayerInteractions {
 
     public int selectRandomPlayerToStart(String playerID, String gameID) {
         try {
-            int opponentsTurn = Integer.parseInt(getOpponentAttribute("myTurn", playerID, gameID));
+            int opponentsTurn = Integer.parseInt(getOpponentAttribute("turns", playerID, gameID));
 
             if (opponentsTurn < 0) {
                 //Opponent has not yet clicked ready. Assign random start value to player.
                 //1 = true, this player start. 0 = false, this player does not start.
                 Random ran = new Random();
                 int turn = ran.nextInt(2);
-                db.updateTable("player", "myTurn", Integer.toString(turn), "playerID", playerID);
+                db.updateTable("player", "turns", Integer.toString(turn), "playerID", playerID);
                 int i = 0;
                 while (i <= 60) {
                     //Wait for other player to get ready.
-                    opponentsTurn = Integer.parseInt(getOpponentAttribute("myTurn", playerID, gameID));
+                    opponentsTurn = Integer.parseInt(getOpponentAttribute("turns", playerID, gameID));
                     if (opponentsTurn >= 0) {
                         return turn;
                     }
@@ -70,11 +73,11 @@ public class PlayerInteractions {
             else {
                 //Opponent has clicked ready, and has been assigned a start value.
                 if(opponentsTurn == 0) {
-                    db.updateTable("player", "myTurn", "1", "playerID", playerID);
+                    db.updateTable("player", "turns", "1", "playerID", playerID);
                     return 1;
                 }
                 else {
-                    db.updateTable("player", "myTurn", "0", "playerID", playerID);
+                    db.updateTable("player", "turns", "0", "playerID", playerID);
                     return 0;
                 }
             }
@@ -84,6 +87,32 @@ public class PlayerInteractions {
         }
         System.out.println("Problem in PlayerInteractions selectRandomPlayerToStart()");
         return -1;
+    }
+
+    public boolean waitForOpponentAbility(String playerID, String gameID, HttpServletRequest request) throws SQLException, InterruptedException {
+        CookieFunctionality cf = new CookieFunctionality();
+        int i = 0;
+        while (i <= 150) {
+            int opponentTurn = Integer.parseInt(getOpponentAttribute("turns", playerID,  gameID));
+            int playerTurn = Integer.parseInt(db.getField("turns", "player", "playerID", playerID));
+            boolean playerStart = Boolean.parseBoolean(cf.getValue(request, "playerStart"));
+
+            if (playerStart) {
+                if (playerTurn == opponentTurn) {
+                    //The opponent has selected an ability.
+                    return true;
+                }
+            }
+            else {
+                    //The opponent has selected an ability
+                if ((playerTurn + 1) == opponentTurn) {
+                    return true;
+                }
+            }
+            i++;
+            TimeUnit.SECONDS.sleep(2); //Wait 2 seconds before looping again.
+        }
+        return false; //Opponent never chose an ability.
     }
 
     /**

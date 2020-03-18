@@ -19,6 +19,14 @@
     Critical chance: ${playerCritical} <br>
     Dodge chance: ${playerDodge} <br> <br>
 
+
+    <form action="servlets.game.WaitForTurnServlet" method="get">
+        <font size="+1">Your opponent is selecting an attack. <br>
+                    Click here to wait for your turn:
+        </font>
+        <input type="submit" value="Wait for my turn">
+    </form>
+
     <font size="+2">${opponentName} [${opponentFighter}]</font> Life left: ${opponentLife} <br>
     Health: ${opponentHealth} <br>
     Energy: ${opponentEnergy} <br>
