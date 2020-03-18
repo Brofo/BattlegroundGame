@@ -243,8 +243,14 @@ public class DbLib {
         return null;
     }
 
+    /**
+     * - 7 -
+     *
+     * When the fighter is selected, we want to register its base values into the database.
+     */
     public void registerFighterValuesInDB(String playerID, String gameID, String fighterName) {
         Fighter fighter = new SelectFighter(out).getFighter(fighterName, playerID, gameID);
+        fighter.setFighterToBaseValues();
         String health = Double.toString(fighter.getHealth());
         String energy = Integer.toString(fighter.getEnergy());
         String damage = Double.toString(fighter.getDamage());
@@ -267,9 +273,6 @@ public class DbLib {
 
     /**
      * Close connections after finishing the operation on the Database.
-     * @param out
-     * @param con
-     * @throws SQLException
      */
     private void closeConnections(PrintWriter out, Connection con) throws SQLException {
         if (out != null) {

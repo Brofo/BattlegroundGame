@@ -22,6 +22,9 @@ import java.sql.SQLException;
         urlPatterns = {"/servlets.game.UseAbilityServlet"}
 )
 
+/**
+ * This servlet is called upon when a player has chosen an ability.
+ */
 public class UseAbilityServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +42,6 @@ public class UseAbilityServlet extends HttpServlet {
         String ability = ah.getAbilitySelected(request);
 
         try {
-
             boolean enoughEnergy = playerFighter.useAbility(ability);
             if (enoughEnergy) {
 

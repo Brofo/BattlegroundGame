@@ -23,15 +23,13 @@ public class PlayerInteractions {
     }
 
     /**
-     * This method will continously check if another player has joined the same gameID
+     * This method will continuously check if another player has joined the same gameID
      * as the player who is waiting for another player. It will check for 300 seconds
      * (5 minutes) until it gives up.
      * @param playerID - ID of the player with the gameID that will be searched for.
      * @return true if a player has joined. false if no one has joined for the 5 minutes.
-     * @throws SQLException
-     * @throws InterruptedException
      */
-    public boolean waitForPlayerToJoin(String playerID) throws SQLException, InterruptedException {
+    public boolean waitForPlayerToJoin(String playerID) {
         try {
             int i = 0;
             while (i <= 150) {
@@ -49,13 +47,22 @@ public class PlayerInteractions {
         return false;
     }
 
+    /**
+     * When the two players are connected, they will click "Ready" to begin the game.
+     * One player is randomly selected to start. This method will check if the other player
+     * has clicked ready, and either generate a random number, or give the player the opposite
+     * number of the opponent, based on whether the opponent has clicked ready yet or not.
+     * @return  0: The player does not start.
+     *          1: The player does start.
+     *          -1: The opponent never clicked ready.
+     */
     public int selectRandomPlayerToStart(String playerID, String gameID) {
         try {
             int opponentsTurn = Integer.parseInt(getOpponentAttribute("turns", playerID, gameID));
 
             if (opponentsTurn < 0) {
                 //Opponent has not yet clicked ready. Assign random start value to player.
-                //1 = true, this player start. 0 = false, this player does not start.
+                //1 = this player start. 0 = this player does not start.
                 Random ran = new Random();
                 int turn = ran.nextInt(2);
                 db.updateTable("player", "turns", Integer.toString(turn), "playerID", playerID);
@@ -89,6 +96,13 @@ public class PlayerInteractions {
         return -1;
     }
 
+    /**
+     * When it is not the player's turn to use an ability, they need to wait for the other
+     * player. This method will check whether the opponent has used an ability, based on how
+     * many turns the players have completed, and based on which player had the first turn.
+     * @return - True if the opponent finished their turn.
+     *           False if time has run out and the opponent didnt do anything.
+     */
     public boolean waitForOpponentAbility(String playerID, String gameID, HttpServletRequest request) throws SQLException, InterruptedException {
         CookieFunctionality cf = new CookieFunctionality();
         int i = 0;
@@ -104,8 +118,8 @@ public class PlayerInteractions {
                 }
             }
             else {
-                    //The opponent has selected an ability
                 if ((playerTurn + 1) == opponentTurn) {
+                    //The opponent has selected an ability
                     return true;
                 }
             }

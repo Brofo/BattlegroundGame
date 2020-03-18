@@ -2,6 +2,7 @@ package classes.fighterModule;
 
 import classes.fighterModule.fighters.Fighter;
 import classes.fighterModule.fighters.FighterChad;
+import classes.fighterModule.fighters.FighterGopnik;
 
 import java.io.PrintWriter;
 
@@ -21,8 +22,9 @@ public class SelectFighter {
      */
     public Fighter getFighter(String fighterName, String playerID, String gameID) {
         switch(fighterName) {
-            case "Chad": return new FighterChad(out, playerID, gameID);
-            //case "NewFighterHere": return new FighterClass(playerID, GameID);
+            case "Chad" : return new FighterChad(out, playerID, gameID);
+            case "Gopnik" : return new FighterGopnik(out, playerID, gameID);
+
         }
 
         System.out.println("No fighter with that name. Add fighter to classes.fighters.SelectFighter");

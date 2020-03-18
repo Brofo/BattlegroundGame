@@ -4,12 +4,15 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * In order to minimize the code in the servlets, this class will deal with
+ * altering and retrieving cookies.
+ */
 public class CookieFunctionality {
 
     /**
      * This method will return the value of the specified cookie.
      * @param cookieName Name of the cookie that will have its value retrieved.
-     * @return
      */
     public String getValue(HttpServletRequest request, String cookieName) {
         Cookie cookies[] = request.getCookies();
@@ -25,15 +28,10 @@ public class CookieFunctionality {
         return null;
     }
 
-    public Cookie[] replaceCookieInArray(Cookie cookies[], String cookieName, String cookieValue) {
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals(cookieName)) {
-                cookie.setValue(cookieValue);
-            }
-        }
-        return cookies;
-    }
-
+    /**
+     * This method will delete all cookies in the array of cookies. May need some modification
+     * if it will be used later.
+     */
     public void deleteAllCookies(Cookie cookies[], HttpServletResponse response) {
         if (cookies.length > 0) {
             for (Cookie cookie : cookies) {

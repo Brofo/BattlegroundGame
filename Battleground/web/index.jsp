@@ -18,7 +18,8 @@
         <input type="text" name="playerName" value="Player"><br>
         Choose a fighter:
         <select id="fighter" name="fighterName">
-          <option name="Chad">Chad</option>
+            <option name="Chad">Chad</option>
+            <option name="Gopnik">Gopnik</option>
         </select><br>
         <input type="submit" value="Play!">
       </form>

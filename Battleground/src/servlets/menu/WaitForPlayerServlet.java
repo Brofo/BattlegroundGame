@@ -19,6 +19,10 @@ import java.sql.SQLException;
         urlPatterns = {"/servlets.menu.WaitForPlayerServlet"}
 )
 
+/**
+ * This servlet is called upon when the player has clicked "join game" and is
+ * waiting for another opponent to join the same game.
+ */
 public class WaitForPlayerServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,7 +69,7 @@ public class WaitForPlayerServlet extends HttpServlet {
                 out.println("No player found.");
             }
         }
-        catch (SQLException | InterruptedException e) {
+        catch (SQLException e) {
             out.println(e);
         }
     }

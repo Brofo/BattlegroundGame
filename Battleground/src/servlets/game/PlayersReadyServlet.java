@@ -18,6 +18,12 @@ import java.sql.SQLException;
 @WebServlet(name = "servlets.game.PlayersReadyServlet",
         urlPatterns = {"/servlets.game.PlayersReadyServlet"}
 )
+
+/**
+ * This servlet is called upon when two players are connected with the same
+ * gameID, and have both clicked "Ready". The servlet will make sure a random
+ * player starts choosing an ability.
+ */
 public class PlayersReadyServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

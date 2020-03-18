@@ -2,12 +2,12 @@ package classes.fighterModule;
 
 /**
  * This class is intended to give a name and description to different abilities,
- * but not direct functionality to the abilities.
+ * but not functionality to the abilities.
  */
 public class AbilityDescription {
-    private String name;
-    private String description;
-    private int energyCost;
+    private String name; //Name of the ability.
+    private String description; //Description of the ability (e.g how much damage it deals).
+    private int energyCost; //The energy cost of the ability.
 
     public AbilityDescription(String name, String description, int energyCost) {
         this.name = name;

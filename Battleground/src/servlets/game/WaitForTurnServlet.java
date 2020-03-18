@@ -19,13 +19,16 @@ import java.sql.SQLException;
         urlPatterns = {"/servlets.game.WaitForTurnServlet"}
 )
 
+/**
+ * This servlet is called upon when a player is waiting for the opponent
+ * to use an ability.
+ */
 public class WaitForTurnServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         PlayerInteractions pi = new PlayerInteractions(out);
         CookieFunctionality cf = new CookieFunctionality();
-        DbLib db = new DbLib(out);
         AddRequestParameters addParam = new AddRequestParameters(request, out);
 
         String playerID = cf.getValue(request, "playerID");

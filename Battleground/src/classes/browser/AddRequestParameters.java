@@ -10,6 +10,9 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+/**
+ * This class will add parameters to the request (parameters will be displayed on the .jsp file).
+ */
 public class AddRequestParameters {
     private PrintWriter out;
     private HttpServletRequest request;
@@ -19,6 +22,10 @@ public class AddRequestParameters {
         this.request = request;
     }
 
+    /**
+     * Add request parameters from cookie. These are all static variables, they won't
+     * change during the course of the game.
+     */
     public void addCookieNameParameters() {
         CookieFunctionality cf = new CookieFunctionality();
         request.setAttribute("playerName", cf.getValue(request, "playerName"));
@@ -27,6 +34,10 @@ public class AddRequestParameters {
         request.setAttribute("opponentFighter", cf.getValue(request, "opponentFighter"));
     }
 
+    /**
+     * Add all the attributes for the player's fighter and the opponent's fighter.
+     * These parameter are dynamic and will change for each ability used.
+     */
     public void addFighterParameters(String playerID, String gameID) throws SQLException {
         AbilityAction action = new AbilityAction(out);
 
@@ -47,6 +58,11 @@ public class AddRequestParameters {
         request.setAttribute("opponentDodge", action.getOpponentValue("dodge_chance", playerID, gameID) + "%");
     }
 
+    /**
+     * Add request parameters that will contain all the abilities and information about each
+     * ability for the selected fighter.
+     * @param playerFighter - The name of the fighter that was selected.
+     */
     public void addAbilityParameters(String playerFighter, String playerID, String gameID) {
         Fighter fighter = new SelectFighter(out).getFighter(playerFighter, playerID, gameID);
         HashMap<String, AbilityDescription> abilityMap = fighter.getAbilityMap();
@@ -54,21 +70,21 @@ public class AddRequestParameters {
         AbilityDescription basicAttack = abilityMap.get("basicAttack");
         request.setAttribute("basicAttack", basicAttack.getName());
         request.setAttribute("basicAttackDesc", basicAttack.getDescription() + " (Restores 1 energy) ");
-        request.setAttribute("basicAttackEnergy", "[" + basicAttack.getEnergyCost() + " energy cost]");
+        request.setAttribute("basicAttackEnergy", " Energy cost: [" + basicAttack.getEnergyCost() + "]");
 
         AbilityDescription abilityOne = abilityMap.get("abilityOne");
         request.setAttribute("abilityOne", abilityOne.getName());
         request.setAttribute("abilityOneDesc", abilityOne.getDescription());
-        request.setAttribute("abilityOneEnergy", abilityOne.getEnergyCost());
+        request.setAttribute("abilityOneEnergy", " Energy cost: [" + abilityOne.getEnergyCost() + "]");
 
         AbilityDescription abilityTwo = abilityMap.get("abilityTwo");
         request.setAttribute("abilityTwo", abilityTwo.getName());
         request.setAttribute("abilityTwoDesc", abilityTwo.getDescription());
-        request.setAttribute("abilityTwoEnergy", abilityTwo.getEnergyCost());
+        request.setAttribute("abilityTwoEnergy", " Energy cost: [" + abilityTwo.getEnergyCost() + "]");
 
         AbilityDescription abilityThree = abilityMap.get("abilityThree");
         request.setAttribute("abilityThree", abilityThree.getName());
         request.setAttribute("abilityThreeDesc", abilityThree.getDescription());
-        request.setAttribute("abilityThreeEnergy", abilityThree.getEnergyCost());
+        request.setAttribute("abilityThreeEnergy", " Energy cost: [" + abilityThree.getEnergyCost() + "]");
     }
 }
