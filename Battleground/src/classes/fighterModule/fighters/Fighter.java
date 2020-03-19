@@ -19,7 +19,8 @@ public abstract class Fighter {
     String gameID;
 
     //All fighter attributes will be changed later.
-    double health = 0;
+    double maxHealth = 0;
+    double currentHealth = 0;
     int energy = 0;
     double damage = 0;
     double armour = 0;
@@ -61,7 +62,8 @@ public abstract class Fighter {
     public abstract boolean abilityThree() throws SQLException;
 
     //Set methods are currently not in use, but may be needed later for Items.
-    public abstract void setHealth();
+    public abstract void setMaxHealth();
+    public abstract void setCurrentHealth();
     public abstract void setEnergy();
     public abstract void setDamage();
     public abstract void setArmour();
@@ -69,8 +71,9 @@ public abstract class Fighter {
     public abstract void setDodge_chance();
 
     //Get methods are used to register the fighter in the Database.
-    public double getHealth() {
-        return health;
+    public double getMaxHealth() {return maxHealth; }
+    public double getCurrentHealth() {
+        return currentHealth;
     }
     public int getEnergy() {
         return energy;
@@ -78,9 +81,7 @@ public abstract class Fighter {
     public double getDamage() {
         return damage;
     }
-    public double getArmour() {
-        return armour;
-    }
+    public double getArmour() { return armour; }
     public double getCritical_chance() {
         return critical_chance;
     }
@@ -112,7 +113,8 @@ public abstract class Fighter {
      */
     protected void syncFighterWithDB() {
         try {
-            health = Integer.parseInt(action.getPlayerValue("health", playerID));
+            maxHealth = Integer.parseInt(action.getPlayerValue("maxHealth", playerID));
+            currentHealth = Integer.parseInt(action.getPlayerValue("currentHealth", playerID));
             energy = Integer.parseInt(action.getPlayerValue("energy", playerID));
             damage = Integer.parseInt(action.getPlayerValue("damage", playerID));
             armour = Integer.parseInt(action.getPlayerValue("armour", playerID));
@@ -131,10 +133,10 @@ public abstract class Fighter {
      * and to calculate damage based on opponent's armour.
      */
     protected void dealDamageToOpponent(double totalDamageToDeal) throws SQLException {
-        double opponentHealth = Double.parseDouble(action.getOpponentValue("health", playerID, gameID));
+        double opponentHealth = Double.parseDouble(action.getOpponentValue("currentHealth", playerID, gameID));
         double damageToDeal = calculateDamage(totalDamageToDeal);
         String opponentNewHealth = Double.toString(opponentHealth - damageToDeal);
-        action.changeOpponentValue(playerID, gameID, "health", opponentNewHealth);
+        action.changeOpponentValue(playerID, gameID, "currentHealth", opponentNewHealth);
     }
 
     /**

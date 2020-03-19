@@ -50,7 +50,8 @@ public class FighterGopnik extends Fighter {
      */
     @Override
     public void setFighterToBaseValues() {
-        this.health = 1000;
+        this.maxHealth = 1000;
+        this.currentHealth = maxHealth;
         this.energy = 6;
         this.damage = 60;
         this.armour = 0;
@@ -81,8 +82,8 @@ public class FighterGopnik extends Fighter {
     @Override
     public boolean abilityTwo() throws SQLException {
         if (this.energy >= abilityTwoEnergy) {
-            String newHealth = Double.toString(this.health + 100);
-            action.changeOwnValue(playerID, "health", newHealth);
+            String newHealth = Double.toString(this.currentHealth + 100);
+            action.changeOwnValue(playerID, "currentHealth", newHealth);
             useEnergy(abilityTwoEnergy);
             return true;
         }
@@ -100,7 +101,12 @@ public class FighterGopnik extends Fighter {
     }
 
     @Override
-    public void setHealth() {
+    public void setMaxHealth() {
+
+    }
+
+    @Override
+    public void setCurrentHealth() {
 
     }
 

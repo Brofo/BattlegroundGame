@@ -52,7 +52,8 @@ public class AAA_FighterSetUpClass extends Fighter {
      */
     @Override
     public void setFighterToBaseValues() {
-        this.health = 1000;
+        this.maxHealth = 1000;
+        this.currentHealth = maxHealth;
         this.energy = 5;
         this.damage = 50;
         this.armour = 0;
@@ -101,7 +102,12 @@ public class AAA_FighterSetUpClass extends Fighter {
     }
 
     @Override
-    public void setHealth() {
+    public void setMaxHealth() {
+
+    }
+
+    @Override
+    public void setCurrentHealth() {
 
     }
 

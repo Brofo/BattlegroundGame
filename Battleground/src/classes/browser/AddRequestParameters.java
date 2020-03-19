@@ -42,7 +42,8 @@ public class AddRequestParameters {
         AbilityAction action = new AbilityAction(out);
 
         request.setAttribute("playerLife", action.getPlayerValue("life", playerID));
-        request.setAttribute("playerHealth", action.getPlayerValue("health", playerID));
+        request.setAttribute("playerMaxHealth", action.getPlayerValue("maxHealth", playerID));
+        request.setAttribute("playerCurrentHealth", action.getPlayerValue("currentHealth", playerID));
         request.setAttribute("playerEnergy", action.getPlayerValue("energy", playerID));
         request.setAttribute("playerDamage", action.getPlayerValue("damage", playerID));
         request.setAttribute("playerArmour", action.getPlayerValue("armour", playerID));
@@ -50,7 +51,8 @@ public class AddRequestParameters {
         request.setAttribute("playerDodge", action.getPlayerValue("dodge_chance", playerID) + "%");
 
         request.setAttribute("opponentLife", action.getOpponentValue("life", playerID, gameID));
-        request.setAttribute("opponentHealth", action.getOpponentValue("health", playerID, gameID));
+        request.setAttribute("opponentMaxHealth", action.getOpponentValue("maxHealth", playerID, gameID));
+        request.setAttribute("opponentCurrentHealth", action.getOpponentValue("currentHealth", playerID, gameID));
         request.setAttribute("opponentEnergy", action.getOpponentValue("energy", playerID, gameID));
         request.setAttribute("opponentDamage", action.getOpponentValue("damage", playerID, gameID));
         request.setAttribute("opponentArmour", action.getOpponentValue("armour", playerID, gameID));

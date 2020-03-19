@@ -12,7 +12,7 @@
 </head>
 <body>
     <font size="+2">${playerName} [${playerFighter}]</font> Life left: ${playerLife} <br>
-    Health: ${playerHealth} <br>
+    Health: ${playerCurrentHealth} / ${playerMaxHealth} <br>
     Energy: ${playerEnergy} <br>
     Damage: ${playerDamage} <br>
     Armour: ${playerArmour} <br>
@@ -36,7 +36,7 @@
     <font color="red" size="+1">${notEnoughEnergyError}</font><br>
 
     <font size="+2">${opponentName} [${opponentFighter}]</font> Life left: ${opponentLife} <br>
-    Health: ${opponentHealth} <br>
+    Health: ${opponentCurrentHealth} / ${opponentMaxHealth} <br>
     Energy: ${opponentEnergy} <br>
     Damage: ${opponentDamage} <br>
     Armour: ${opponentArmour} <br>

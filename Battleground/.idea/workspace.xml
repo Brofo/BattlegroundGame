@@ -2,28 +2,20 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Battleground:war" />
+      <artifact name="Battleground:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/AAA_FighterSetUpClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterGopnik.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/browser/AbilityHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/browser/AbilityHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/browser/CookieFunctionality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/browser/CookieFunctionality.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/database/DbLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/DbLib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/AbilityDescription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/AbilityDescription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/SelectFighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/SelectFighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/AAA_FighterSetUpClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/AAA_FighterSetUpClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterChad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterChad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/game/UseAbilityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/UseAbilityServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/game/WaitForTurnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/WaitForTurnServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/menu/WaitForPlayerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/menu/WaitForPlayerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterGopnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterGopnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/gameAction.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameAction.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/gameWait.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameWait.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +209,8 @@
       <workItem from="1584270663062" duration="1222000" />
       <workItem from="1584282024890" duration="20713000" />
       <workItem from="1584446120127" duration="25000" />
-      <workItem from="1584524219838" duration="19618000" />
+      <workItem from="1584524219838" duration="20276000" />
+      <workItem from="1584619250510" duration="2193000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;Commit with sample code&quot;">
       <created>1581365843906</created>
@@ -279,7 +272,13 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1584531549292</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL−00011" summary="- Added more documentation&#10;- Fixed a bug&#10;- Added Fighter Gopnik">
+      <created>1584550749535</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1584550749536</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +309,7 @@
     <MESSAGE value="Added some functionality:&#10;- Created first version of fighter module.&#10;- Added a fast way to set request parameters.&#10;- Added functionality so that a random player is selected to start." />
     <MESSAGE value="Added some functionality:&#10;- Static parameters such as player and opponent names are handled as Cookie.&#10;- Fixed a bit on servlets and cookies and added more parameters." />
     <MESSAGE value="- It is possible for two players to fight" />
-    <option name="LAST_COMMIT_MESSAGE" value="- It is possible for two players to fight" />
+    <MESSAGE value="- Added more documentation&#10;- Fixed a bug&#10;- Added Fighter Gopnik" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added more documentation&#10;- Fixed a bug&#10;- Added Fighter Gopnik" />
   </component>
 </project>

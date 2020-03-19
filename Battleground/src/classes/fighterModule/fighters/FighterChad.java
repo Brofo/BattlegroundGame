@@ -48,7 +48,8 @@ public class FighterChad extends Fighter {
      */
     @Override
     public void setFighterToBaseValues() {
-        this.health = 850;
+        this.maxHealth = 850;
+        this.currentHealth = maxHealth;
         this.energy = 5;
         this.damage = 80;
         this.armour = 0;
@@ -88,7 +89,12 @@ public class FighterChad extends Fighter {
     }
 
     @Override
-    public void setHealth() {
+    public void setMaxHealth() {
+
+    }
+
+    @Override
+    public void setCurrentHealth() {
 
     }
 
