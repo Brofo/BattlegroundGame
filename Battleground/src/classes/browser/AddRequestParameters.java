@@ -42,22 +42,22 @@ public class AddRequestParameters {
         AbilityAction action = new AbilityAction(out);
 
         request.setAttribute("playerLife", action.getPlayerValue("life", playerID));
-        request.setAttribute("playerMaxHealth", action.getPlayerValue("maxHealth", playerID));
+        request.setAttribute("playerBaseHealth", action.getPlayerValue("baseHealth", playerID));
         request.setAttribute("playerCurrentHealth", action.getPlayerValue("currentHealth", playerID));
-        request.setAttribute("playerEnergy", action.getPlayerValue("energy", playerID));
+        request.setAttribute("playerCurrentEnergy", action.getPlayerValue("currentEnergy", playerID));
         request.setAttribute("playerDamage", action.getPlayerValue("damage", playerID));
         request.setAttribute("playerArmour", action.getPlayerValue("armour", playerID));
-        request.setAttribute("playerCritical", action.getPlayerValue("critical_chance", playerID) + "%");
-        request.setAttribute("playerDodge", action.getPlayerValue("dodge_chance", playerID) + "%");
+        request.setAttribute("playerCriticalChance", action.getPlayerValue("critical_chance", playerID) + "%");
+        request.setAttribute("playerDodgeChance", action.getPlayerValue("dodge_chance", playerID) + "%");
 
         request.setAttribute("opponentLife", action.getOpponentValue("life", playerID, gameID));
-        request.setAttribute("opponentMaxHealth", action.getOpponentValue("maxHealth", playerID, gameID));
+        request.setAttribute("opponentBaseHealth", action.getOpponentValue("baseHealth", playerID, gameID));
         request.setAttribute("opponentCurrentHealth", action.getOpponentValue("currentHealth", playerID, gameID));
-        request.setAttribute("opponentEnergy", action.getOpponentValue("energy", playerID, gameID));
+        request.setAttribute("opponentCurrentEnergy", action.getOpponentValue("currentEnergy", playerID, gameID));
         request.setAttribute("opponentDamage", action.getOpponentValue("damage", playerID, gameID));
         request.setAttribute("opponentArmour", action.getOpponentValue("armour", playerID, gameID));
-        request.setAttribute("opponentCritical", action.getOpponentValue("critical_chance", playerID, gameID) + "%");
-        request.setAttribute("opponentDodge", action.getOpponentValue("dodge_chance", playerID, gameID) + "%");
+        request.setAttribute("opponentCriticalChance", action.getOpponentValue("critical_chance", playerID, gameID) + "%");
+        request.setAttribute("opponentDodgeChance", action.getOpponentValue("dodge_chance", playerID, gameID) + "%");
     }
 
     /**
@@ -88,5 +88,57 @@ public class AddRequestParameters {
         request.setAttribute("abilityThree", abilityThree.getName());
         request.setAttribute("abilityThreeDesc", abilityThree.getDescription());
         request.setAttribute("abilityThreeEnergy", " Energy cost: [" + abilityThree.getEnergyCost() + "]");
+    }
+
+    public void addFightOverParameters(String playerID, String gameID, boolean win) throws SQLException {
+        CookieFunctionality cf = new CookieFunctionality();
+        AbilityAction action = new AbilityAction(out);
+        String playerName = cf.getValue(request, "playerName");
+        String opponentName = cf.getValue(request, "opponentName");
+        String playerLives = action.getPlayerValue("life", playerID);
+        String opponentLives = action.getOpponentValue("life", playerID, gameID);
+
+        if (win) {
+            request.setAttribute("winnerName", playerName);
+            request.setAttribute("loserName", opponentName);
+            request.setAttribute("winnerLife", playerLives);
+            request.setAttribute("loserLife", opponentLives);
+        }
+        else {
+            request.setAttribute("winnerName", opponentName);
+            request.setAttribute("loserName", playerName);
+            request.setAttribute("winnerLife", opponentLives);
+            request.setAttribute("loserLife", playerLives);
+        }
+    }
+
+    public void addAbilityResultParameters(String playerID, String gameID, boolean useAbility) throws SQLException {
+        AbilityHandler ah = new AbilityHandler();
+        AbilityAction action = new AbilityAction(out);
+
+        if (useAbility) {
+            String playerAbilityName = ah.updateCurrentAbility(request, out, playerID);
+            String playerCritical_hit = action.getPlayerValue("critical_hit", playerID);
+            String opponentDodged = action.getOpponentValue("dodged", playerID, gameID);
+            request.setAttribute("playerCurrentAbility", playerAbilityName);
+            if(playerCritical_hit.equals("1")) {
+                request.setAttribute("playerCritical_hit", "Critical Hit!");
+            }
+            if(opponentDodged.equals("1")) {
+                request.setAttribute("opponentDodged", "Dodge!");
+            }
+        }
+        else {
+            String opponentAbility = action.getOpponentValue("currentAbility", playerID, gameID);
+            String opponentCritical_hit = action.getOpponentValue("critical_hit", playerID, gameID);
+            String playerDodged = action.getPlayerValue("dodged", playerID);
+            request.setAttribute("opponentCurrentAbility", opponentAbility);
+            if(opponentCritical_hit.equals("1")) {
+                request.setAttribute("opponentCritical_hit", "Critical Hit!");
+            }
+            if(playerDodged.equals("1")) {
+                request.setAttribute("playerDodged", "Dodge!");
+            }
+        }
     }
 }

@@ -48,9 +48,10 @@ public class FighterChad extends Fighter {
      */
     @Override
     public void setFighterToBaseValues() {
-        this.maxHealth = 850;
-        this.currentHealth = maxHealth;
-        this.energy = 5;
+        this.baseHealth = 850;
+        this.currentHealth = baseHealth;
+        this.baseEnergy = 5;
+        this.currentEnergy = baseEnergy;
         this.damage = 80;
         this.armour = 0;
         this.critical_chance = 15;
@@ -64,7 +65,7 @@ public class FighterChad extends Fighter {
 
     @Override
     public boolean abilityOne() throws SQLException {
-        if (this.energy >= abilityOneEnergy) {
+        if (this.currentEnergy >= abilityOneEnergy) {
             dealDamageToOpponent(abilityOneDamage);
             useEnergy(abilityOneEnergy);
             return true;
@@ -80,7 +81,7 @@ public class FighterChad extends Fighter {
 
     @Override
     public boolean abilityThree() throws SQLException {
-        if (this.energy >= abilityThreeEnergy) {
+        if (this.currentEnergy >= abilityThreeEnergy) {
             dealDamageToOpponent(abilityThreeDamage);
             useEnergy(abilityThreeEnergy);
             return true;
@@ -89,7 +90,7 @@ public class FighterChad extends Fighter {
     }
 
     @Override
-    public void setMaxHealth() {
+    public void setBaseHealth() {
 
     }
 
@@ -99,7 +100,12 @@ public class FighterChad extends Fighter {
     }
 
     @Override
-    public void setEnergy() {
+    public void setBaseEnergy() {
+
+    }
+
+    @Override
+    public void setCurrentEnergy() {
 
     }
 

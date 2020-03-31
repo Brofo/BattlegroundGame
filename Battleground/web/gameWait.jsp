@@ -12,13 +12,15 @@
 </head>
 <body>
     <font size="+2">${playerName} [${playerFighter}]</font> Life left: ${playerLife} <br>
-    Health: ${playerCurrentHealth} / ${playerMaxHealth} <br>
-    Energy: ${playerEnergy} <br>
+    Health: ${playerCurrentHealth} / ${playerBaseHealth} <br>
+    Energy: ${playerCurrentEnergy} <br>
     Damage: ${playerDamage} <br>
     Armour: ${playerArmour} <br>
-    Critical chance: ${playerCritical} <br>
-    Dodge chance: ${playerDodge} <br> <br>
+    Critical chance: ${playerCriticalChance} <br>
+    Dodge chance: ${playerDodgeChance} <br>
 
+    <font size="+3" color="#b22222">${playerCurrentAbility}</font><br>
+    <font size="+3" color="#daa520">${playerCritical_hit}</font><br>
 
     <form action="servlets.game.WaitForTurnServlet" method="get">
         <font size="+1">Your opponent is selecting an attack. <br>
@@ -27,12 +29,14 @@
         <input type="submit" value="Wait for my turn">
     </form>
 
+    <font size="+3" color="#1e90ff">${opponentDodged}</font><br>
+
     <font size="+2">${opponentName} [${opponentFighter}]</font> Life left: ${opponentLife} <br>
-    Health: ${opponentCurrentHealth} / ${opponentMaxHealth} <br>
-    Energy: ${opponentEnergy} <br>
+    Health: ${opponentCurrentHealth} / ${opponentBaseHealth} <br>
+    Energy: ${opponentCurrentEnergy} <br>
     Damage: ${opponentDamage} <br>
     Armour: ${opponentArmour} <br>
-    Critical chance: ${opponentCritical} <br>
-    Dodge chance: ${opponentDodge} <br> <br>
+    Critical chance: ${opponentCriticalChance} <br>
+    Dodge chance: ${opponentDodgeChance} <br> <br>
 </body>
 </html>

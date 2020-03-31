@@ -12,12 +12,14 @@
 </head>
 <body>
     <font size="+2">${playerName} [${playerFighter}]</font> Life left: ${playerLife} <br>
-    Health: ${playerCurrentHealth} / ${playerMaxHealth} <br>
-    Energy: ${playerEnergy} <br>
+    Health: ${playerCurrentHealth} / ${playerBaseHealth} <br>
+    Energy: ${playerCurrentEnergy} <br>
     Damage: ${playerDamage} <br>
     Armour: ${playerArmour} <br>
-    Critical chance: ${playerCritical} <br>
-    Dodge chance: ${playerDodge} <br> <br>
+    Critical chance: ${playerCriticalChance} <br>
+    Dodge chance: ${playerDodgeChance} <br>
+
+    <font size="+3" color="#1e90ff">${playerDodged}</font><br>
 
     <form action="servlets.game.UseAbilityServlet" method="get">
         <font size="+3">Your turn. Use ability: </font><br>
@@ -31,16 +33,21 @@
         ${abilityTwoDesc} | ${abilityTwoEnergy}<br>
 
         <input type="submit" value="${abilityThree}" name="abilityThree">
-        ${abilityThreeDesc} | ${abilityThreeEnergy}
+        ${abilityThreeDesc} | ${abilityThreeEnergy}<br>
     </form>
     <font color="red" size="+1">${notEnoughEnergyError}</font><br>
 
+
+    <font size="+3" color="#b22222">${opponentCurrentAbility}</font><br>
+    <font size="+3" color="#daa520">${opponentCritical_hit}</font><br>
+
     <font size="+2">${opponentName} [${opponentFighter}]</font> Life left: ${opponentLife} <br>
-    Health: ${opponentCurrentHealth} / ${opponentMaxHealth} <br>
-    Energy: ${opponentEnergy} <br>
+    Health: ${opponentCurrentHealth} / ${opponentBaseHealth} <br>
+    Energy: ${opponentCurrentEnergy} <br>
     Damage: ${opponentDamage} <br>
     Armour: ${opponentArmour} <br>
-    Critical chance: ${opponentCritical} <br>
-    Dodge chance: ${opponentDodge} <br> <br>
+    Critical chance: ${opponentCriticalChance} <br>
+    Dodge chance: ${opponentDodgeChance} <br> <br>
+
 </body>
 </html>

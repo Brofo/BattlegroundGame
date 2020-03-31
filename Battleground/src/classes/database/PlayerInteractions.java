@@ -1,8 +1,10 @@
 package classes.database;
 
 import classes.browser.CookieFunctionality;
+import classes.fighterModule.AbilityAction;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Random;
@@ -123,10 +125,75 @@ public class PlayerInteractions {
                     return true;
                 }
             }
+            if (opponentTurn == -1) {
+                //The player has won the fight.
+                return true;
+            }
             i++;
             TimeUnit.SECONDS.sleep(2); //Wait 2 seconds before looping again.
         }
         return false; //Opponent never chose an ability.
+    }
+
+    /**
+     * Check if the player's current health is 0 or less. If it is, the figher is dead,
+     * and the fight is lost.
+     */
+    public boolean checkIfFightIsLost(String playerID) throws SQLException {
+        int playerHealth = Integer.parseInt(db.getField("currentHealth", "player", "playerID", playerID));
+        if (playerHealth <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Check if the opponent's current health is 0 or less. If it is, the fighter is dead,
+     * and the fight is won. Remove one life from the opponent's database.
+     */
+    public boolean checkIfFightIsWon(String playerID, String gameID) throws SQLException {
+        AbilityAction action = new AbilityAction(out);
+        int opponentHealth = Integer.parseInt(getOpponentAttribute("currentHealth", playerID, gameID));
+        if (opponentHealth <= 0) {
+            int opponentLife = Integer.parseInt(action.getOpponentValue("life", playerID, gameID));
+            action.changeOpponentValue(playerID, gameID, "life", Integer.toString(opponentLife - 1));
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Set the starting priority for the next fight, based on which player started the
+     * previous fight.
+     */
+    public int setNextFightStartPriority(HttpServletResponse response, HttpServletRequest request, String playerID, String gameID) throws SQLException, InterruptedException {
+        CookieFunctionality cf = new CookieFunctionality();
+        int startPriority;
+        boolean playerStart = Boolean.parseBoolean(cf.getValue(request, "playerStart"));
+        if(playerStart) {
+            //Next round, the player should NOT start the game.
+            cf.replaceCookieValue(response, request, "playerStart", "false");
+            db.updateTable("player", "turns", "0", "playerID", playerID);
+            startPriority = 0;
+        }
+        else {
+            //Next round, the player SHOULD start the game.
+            cf.replaceCookieValue(response, request, "playerStart", "true");
+            db.updateTable("player", "turns", "1", "playerID", playerID);
+            startPriority = 1;
+        }
+        int i = 0;
+        while (i <= 150) {
+            //Wait for other player to get ready.
+            int opponentReady = Integer.parseInt(getOpponentAttribute("turns", playerID, gameID));
+            if (opponentReady == 0 || opponentReady == 1) {
+                return startPriority;
+            }
+            i++;
+            TimeUnit.SECONDS.sleep(2); //Wait 2 seconds before looping again.
+        }
+        System.out.println("Error in PlayerInteractions - setNextFightStartPriority()");
+        return 0;
     }
 
     /**

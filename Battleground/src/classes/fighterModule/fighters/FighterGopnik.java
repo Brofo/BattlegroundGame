@@ -50,9 +50,10 @@ public class FighterGopnik extends Fighter {
      */
     @Override
     public void setFighterToBaseValues() {
-        this.maxHealth = 1000;
-        this.currentHealth = maxHealth;
-        this.energy = 6;
+        this.baseHealth = 1000;
+        this.currentHealth = baseHealth;
+        this.baseEnergy = 6;
+        this.currentEnergy = baseEnergy;
         this.damage = 60;
         this.armour = 0;
         this.critical_chance = 25;
@@ -67,7 +68,7 @@ public class FighterGopnik extends Fighter {
     @Override
     public boolean abilityOne() throws SQLException {
         //Check if we have enough energy to use the ability.
-        if (this.energy >= abilityOneEnergy) {
+        if (this.currentEnergy >= abilityOneEnergy) {
             //Enough energy. Use ability (this ability deals damage):
             dealDamageToOpponent(abilityOneDamage);
             //Use the energy the ability cost:
@@ -81,7 +82,7 @@ public class FighterGopnik extends Fighter {
 
     @Override
     public boolean abilityTwo() throws SQLException {
-        if (this.energy >= abilityTwoEnergy) {
+        if (this.currentEnergy >= abilityTwoEnergy) {
             String newHealth = Double.toString(this.currentHealth + 100);
             action.changeOwnValue(playerID, "currentHealth", newHealth);
             useEnergy(abilityTwoEnergy);
@@ -92,7 +93,7 @@ public class FighterGopnik extends Fighter {
 
     @Override
     public boolean abilityThree() throws SQLException {
-        if (this.energy >= abilityThreeEnergy) {
+        if (this.currentEnergy >= abilityThreeEnergy) {
             dealDamageToOpponent(abilityThreeDamage);
             useEnergy(abilityThreeEnergy);
             return true;
@@ -101,7 +102,7 @@ public class FighterGopnik extends Fighter {
     }
 
     @Override
-    public void setMaxHealth() {
+    public void setBaseHealth() {
 
     }
 
@@ -111,7 +112,12 @@ public class FighterGopnik extends Fighter {
     }
 
     @Override
-    public void setEnergy() {
+    public void setBaseEnergy() {
+
+    }
+
+    @Override
+    public void setCurrentEnergy() {
 
     }
 

@@ -251,18 +251,20 @@ public class DbLib {
     public void registerFighterValuesInDB(String playerID, String gameID, String fighterName) {
         Fighter fighter = new SelectFighter(out).getFighter(fighterName, playerID, gameID);
         fighter.setFighterToBaseValues();
-        String maxHealth = Double.toString(fighter.getMaxHealth());
+        String baseHealth = Double.toString(fighter.getBaseHealth());
         String currentHealth = Double.toString(fighter.getCurrentHealth());
-        String energy = Integer.toString(fighter.getEnergy());
+        String baseEnergy = Integer.toString(fighter.getBaseEnergy());
+        String currentEnergy = Integer.toString(fighter.getCurrentEnergy());
         String damage = Double.toString(fighter.getDamage());
         String armour = Double.toString(fighter.getArmour());
         String critical = Double.toString(fighter.getCritical_chance());
         String dodge = Double.toString(fighter.getDodge_chance());
 
         try {
-            updateTable("player", "maxHealth", maxHealth, "playerID", playerID);
+            updateTable("player", "baseHealth", baseHealth, "playerID", playerID);
             updateTable("player", "currentHealth", currentHealth, "playerID", playerID);
-            updateTable("player", "energy", energy, "playerID", playerID);
+            updateTable("player", "baseEnergy", baseEnergy, "playerID", playerID);
+            updateTable("player", "currentEnergy", currentEnergy, "playerID", playerID);
             updateTable("player", "damage", damage, "playerID", playerID);
             updateTable("player", "armour", armour, "playerID", playerID);
             updateTable("player", "critical_chance", critical, "playerID", playerID);

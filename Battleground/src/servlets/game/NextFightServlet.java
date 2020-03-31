@@ -4,10 +4,11 @@ import classes.browser.AddRequestParameters;
 import classes.browser.CookieFunctionality;
 import classes.database.DbLib;
 import classes.database.PlayerInteractions;
+import classes.fighterModule.SelectFighter;
+import classes.fighterModule.fighters.Fighter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,16 +16,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-@WebServlet(name = "servlets.game.PlayersReadyServlet",
-        urlPatterns = {"/servlets.game.PlayersReadyServlet"}
+@WebServlet(name = "servlets.game.NextFightServlet",
+        urlPatterns = {"/servlets.game.NextFightServlet"}
 )
 
 /**
- * This servlet is called upon when two players are connected with the same
- * gameID, and have both clicked "Ready". The servlet will make sure a random
- * player starts choosing an ability.
+ * This servlet is used to start a new game, AFTER the first game has been played.
+ * This requires another servlet than the "PlayersReadyServlet", because we do not
+ * need to assign a random starting value, because the players should start every
+ * second fight.
  */
-public class PlayersReadyServlet extends HttpServlet {
+public class NextFightServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -39,27 +41,33 @@ public class PlayersReadyServlet extends HttpServlet {
 
 
         try {
+            //Restore values in the player's fighter for the next fight.
+            Fighter playerFighter = new SelectFighter(out).getFighter(playerFighterName, playerID, gameID);
+            playerFighter.restoreHealthAndEnergy();
 
-            int ready = pi.selectRandomPlayerToStart(playerID, gameID);
+            //Set starting priority for the next fight:
+            int startPriority = pi.setNextFightStartPriority(response, request, playerID, gameID);
+
             addParam.addFighterParameters(playerID, gameID);
             addParam.addCookieNameParameters();
 
-            if(ready == 0) {
-                response.addCookie(new Cookie("playerStart", "false"));
+            if(startPriority == 0) {
                 request.getRequestDispatcher("gameWait.jsp").forward(request, response);
             }
-            if (ready == 1) {
-                response.addCookie(new Cookie("playerStart", "true"));
+
+            if(startPriority == 1) {
+                addParam.addAbilityParameters(playerFighterName, playerID, gameID);
+
                 //Put turns back to 0. This will be incremented when the player uses an ability.
                 db.updateTable("player", "turns", "0", "playerID", playerID);
-                addParam.addAbilityParameters(playerFighterName, playerID, gameID);
+
                 request.getRequestDispatcher("gameAction.jsp").forward(request, response);
             }
-            if (ready < 0) {
-                out.println("Could not process ready players. Ready value: " + ready);
-            }
-        } catch (SQLException e) {
+
+        } catch (SQLException | InterruptedException e) {
             e.printStackTrace();
         }
+
+
     }
 }

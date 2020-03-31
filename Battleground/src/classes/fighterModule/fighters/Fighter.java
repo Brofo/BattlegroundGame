@@ -19,9 +19,10 @@ public abstract class Fighter {
     String gameID;
 
     //All fighter attributes will be changed later.
-    double maxHealth = 0;
+    double baseHealth = 0;
     double currentHealth = 0;
-    int energy = 0;
+    int baseEnergy = 0;
+    int currentEnergy = 0;
     double damage = 0;
     double armour = 0;
     double critical_chance = 0;
@@ -40,6 +41,17 @@ public abstract class Fighter {
      * for each fighter is determined.
      */
     public abstract void setFighterToBaseValues();
+
+    /**
+     * For each round, we want to restore the fighter's health and energy, without affecting
+     * other attributes because of items that have been added to the fighter. This method
+     * will just restore the currentHealth and currentEnergy of the fighter.
+     */
+    public void restoreHealthAndEnergy() throws SQLException {
+        setFighterToBaseValues(); //Set fighter to base values, just to restore health and energy.
+        action.changeOwnValue(playerID,"currentHealth", Double.toString(this.baseHealth));
+        action.changeOwnValue(playerID, "currentEnergy", Integer.toString(this.baseEnergy));
+    }
 
     /**
      * Basic attack applies to all fighters, and the functionality is therefore put into the superclass.
@@ -62,21 +74,23 @@ public abstract class Fighter {
     public abstract boolean abilityThree() throws SQLException;
 
     //Set methods are currently not in use, but may be needed later for Items.
-    public abstract void setMaxHealth();
+    public abstract void setBaseHealth();
     public abstract void setCurrentHealth();
-    public abstract void setEnergy();
+    public abstract void setBaseEnergy();
+    public abstract void setCurrentEnergy();
     public abstract void setDamage();
     public abstract void setArmour();
     public abstract void setCritical_chance();
     public abstract void setDodge_chance();
 
     //Get methods are used to register the fighter in the Database.
-    public double getMaxHealth() {return maxHealth; }
+    public double getBaseHealth() {return baseHealth; }
     public double getCurrentHealth() {
         return currentHealth;
     }
-    public int getEnergy() {
-        return energy;
+    public int getBaseEnergy() { return baseEnergy; }
+    public int getCurrentEnergy() {
+        return currentEnergy;
     }
     public double getDamage() {
         return damage;
@@ -113,9 +127,10 @@ public abstract class Fighter {
      */
     protected void syncFighterWithDB() {
         try {
-            maxHealth = Integer.parseInt(action.getPlayerValue("maxHealth", playerID));
+            baseHealth = Integer.parseInt(action.getPlayerValue("baseHealth", playerID));
             currentHealth = Integer.parseInt(action.getPlayerValue("currentHealth", playerID));
-            energy = Integer.parseInt(action.getPlayerValue("energy", playerID));
+            baseEnergy = Integer.parseInt(action.getPlayerValue("baseEnergy", playerID));
+            currentEnergy = Integer.parseInt(action.getPlayerValue("currentEnergy", playerID));
             damage = Integer.parseInt(action.getPlayerValue("damage", playerID));
             armour = Integer.parseInt(action.getPlayerValue("armour", playerID));
             critical_chance = Integer.parseInt(action.getPlayerValue("critical_chance", playerID));
@@ -147,23 +162,35 @@ public abstract class Fighter {
      *                 negative, the energy will be added to the database.
      */
     protected void useEnergy(int amount) throws SQLException {
-        energy = energy - amount;
-        action.changeOwnValue(playerID, "energy", Integer.toString(energy));
+        currentEnergy = currentEnergy - amount;
+        action.changeOwnValue(playerID, "currentEnergy", Integer.toString(currentEnergy));
     }
 
     /**
-     * Calculate damage based on critical chance and the opponents armour.
-     * Dodging will be calculated somewhere else.
+     * Calculate damage based on critical chance and the opponents armour. The opponent
+     * can also dodge the attack, resulting in 0 damage dealt. If the player inflicts a critical
+     * hit, or the opponent dodges, the database will be updated with these values.
+     *
+     * dodged and critical_hit are set to 0 (false) first, to update the value from a previous
+     * ability.
      */
     protected double calculateDamage(double damageFromAbility) throws SQLException {
         int opponentArmour = Integer.parseInt(action.getOpponentValue("armour", playerID, gameID));
+        double opponentDodgeChance = Double.parseDouble(action.getOpponentValue("dodge_chance", playerID, gameID));
 
-        if (critical_chance != 0) {
-            Random ran = new Random();
-            int diceRoll = ran.nextInt(100) +1;
-            if (critical_chance >= diceRoll) {
-                damageFromAbility = damageFromAbility * 2;
-            }
+        boolean critical_hit = abilityDice(critical_chance);
+        boolean opponentDodged = abilityDice(opponentDodgeChance);
+
+        action.changeOwnValue(playerID, "critical_hit", "0");
+        action.changeOpponentValue(playerID, gameID, "dodged", "0");
+
+        if (critical_hit) {
+            action.changeOwnValue(playerID, "critical_hit", "1");
+            damageFromAbility *= 2;
+        }
+        if (opponentDodged) {
+            action.changeOpponentValue(playerID, gameID, "dodged", "1");
+            return 0; //Return 0 because 0 damage is dealt.
         }
 
         double calculatedDamage = damageFromAbility - opponentArmour;
@@ -173,5 +200,17 @@ public abstract class Fighter {
         else {
             return 0;
         }
+    }
+
+    /**
+     * This method will check if the player hits the percentage for a critical hit or
+     * the opponent's percentage of a dodge.
+     * @param - critical_chance or dodge_chance
+     * @return - True if the percentage is hit.
+     */
+    private boolean abilityDice(double value) {
+        Random ran = new Random();
+        int diceRoll = ran.nextInt(100) +1;
+        return value >= diceRoll;
     }
 }

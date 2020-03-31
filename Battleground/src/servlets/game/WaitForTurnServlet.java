@@ -4,6 +4,8 @@ import classes.browser.AddRequestParameters;
 import classes.browser.CookieFunctionality;
 import classes.database.DbLib;
 import classes.database.PlayerInteractions;
+import classes.fighterModule.SelectFighter;
+import classes.fighterModule.fighters.Fighter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,20 +32,29 @@ public class WaitForTurnServlet extends HttpServlet {
         PlayerInteractions pi = new PlayerInteractions(out);
         CookieFunctionality cf = new CookieFunctionality();
         AddRequestParameters addParam = new AddRequestParameters(request, out);
+        DbLib db = new DbLib(out);
 
         String playerID = cf.getValue(request, "playerID");
         String gameID = cf.getValue(request, "gameID");
-        String playerFighter = cf.getValue(request, "playerFighter");
+        String playerFighterName = cf.getValue(request, "playerFighter");
 
         try {
             boolean opponentFinished = pi.waitForOpponentAbility(playerID, gameID, request);
             if(opponentFinished) {
 
-                addParam.addCookieNameParameters();
-                addParam.addAbilityParameters(playerFighter, playerID, gameID);
-                addParam.addFighterParameters(playerID, gameID);
-
-                request.getRequestDispatcher("gameAction.jsp").forward(request, response);
+                if(pi.checkIfFightIsLost(playerID)) {
+                    addParam.addFightOverParameters(playerID, gameID, false);
+                    //Set turns to -1 for later.
+                    db.updateTable("player", "turns", "-1", "playerID", playerID);
+                    request.getRequestDispatcher("fightOver.jsp").forward(request, response);
+                }
+                else {
+                    addParam.addCookieNameParameters();
+                    addParam.addAbilityResultParameters(playerID, gameID, false);
+                    addParam.addAbilityParameters(playerFighterName, playerID, gameID);
+                    addParam.addFighterParameters(playerID, gameID);
+                    request.getRequestDispatcher("gameAction.jsp").forward(request, response);
+                }
             }
         } catch (SQLException | InterruptedException e) {
             e.printStackTrace();

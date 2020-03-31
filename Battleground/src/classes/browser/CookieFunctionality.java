@@ -29,13 +29,25 @@ public class CookieFunctionality {
     }
 
     /**
+     * Replace the value of a cookie.
+     */
+    public void replaceCookieValue(HttpServletResponse response, HttpServletRequest request, String cookieName, String newValue) {
+        Cookie existingCookies[] = request.getCookies();
+        for(Cookie cookie : existingCookies) {
+            if(cookie.getName().equals(cookieName)) {
+                cookie.setValue(newValue);
+                response.addCookie(cookie);
+            }
+        }
+    }
+
+    /**
      * This method will delete all cookies in the array of cookies. May need some modification
      * if it will be used later.
      */
     public void deleteAllCookies(Cookie cookies[], HttpServletResponse response) {
         if (cookies.length > 0) {
             for (Cookie cookie : cookies) {
-                System.out.println(cookie.getName());
                 Cookie overwriteCookie = new Cookie(cookie.getName(), "");
                 overwriteCookie.setMaxAge(0);
                 response.addCookie(cookie);
