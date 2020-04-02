@@ -32,7 +32,6 @@ public class WaitForTurnServlet extends HttpServlet {
         PlayerInteractions pi = new PlayerInteractions(out);
         CookieFunctionality cf = new CookieFunctionality();
         AddRequestParameters addParam = new AddRequestParameters(request, out);
-        DbLib db = new DbLib(out);
 
         String playerID = cf.getValue(request, "playerID");
         String gameID = cf.getValue(request, "gameID");
@@ -41,11 +40,12 @@ public class WaitForTurnServlet extends HttpServlet {
         try {
             boolean opponentFinished = pi.waitForOpponentAbility(playerID, gameID, request);
             if(opponentFinished) {
-
                 if(pi.checkIfFightIsLost(playerID)) {
+                    if(pi.checkIfGameIsLost(playerID)) {
+                        addParam.addFightOverParameters(playerID, gameID, false);
+                        request.getRequestDispatcher("gameOver.jsp").forward(request, response);
+                    }
                     addParam.addFightOverParameters(playerID, gameID, false);
-                    //Set turns to -1 for later.
-                    db.updateTable("player", "turns", "-1", "playerID", playerID);
                     request.getRequestDispatcher("fightOver.jsp").forward(request, response);
                 }
                 else {

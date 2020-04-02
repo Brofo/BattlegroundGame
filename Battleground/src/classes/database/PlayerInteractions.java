@@ -2,6 +2,8 @@ package classes.database;
 
 import classes.browser.CookieFunctionality;
 import classes.fighterModule.AbilityAction;
+import classes.fighterModule.SelectFighter;
+import classes.fighterModule.fighters.Fighter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -125,7 +127,7 @@ public class PlayerInteractions {
                     return true;
                 }
             }
-            if (opponentTurn == -1) {
+            if (opponentTurn < 0) {
                 //The player has won the fight.
                 return true;
             }
@@ -142,11 +144,17 @@ public class PlayerInteractions {
     public boolean checkIfFightIsLost(String playerID) throws SQLException {
         int playerHealth = Integer.parseInt(db.getField("currentHealth", "player", "playerID", playerID));
         if (playerHealth <= 0) {
+            //Set turns to -1 for later.
+            db.updateTable("player", "turns", "-1", "playerID", playerID);
             return true;
         }
         return false;
     }
 
+    public boolean checkIfGameIsLost(String playerID) throws SQLException {
+        int playerLife = Integer.parseInt(db.getField("life", "player", "playerID", playerID));
+        return playerLife <= 0;
+    }
     /**
      * Check if the opponent's current health is 0 or less. If it is, the fighter is dead,
      * and the fight is won. Remove one life from the opponent's database.
@@ -157,14 +165,27 @@ public class PlayerInteractions {
         if (opponentHealth <= 0) {
             int opponentLife = Integer.parseInt(action.getOpponentValue("life", playerID, gameID));
             action.changeOpponentValue(playerID, gameID, "life", Integer.toString(opponentLife - 1));
+            //Set turns to -1 for later.
+            db.updateTable("player", "turns", "-1", "playerID", playerID);
             return true;
         }
+        //Player's turn is finished. Increment turns.
+        int turns = Integer.parseInt(db.getField("turns", "player", "playerID", playerID));
+        db.updateTable("player", "turns", Integer.toString(turns + 1), "playerID", playerID);
         return false;
+    }
+
+    public boolean checkIfGameIsWon(String playerID, String gameID) throws SQLException {
+        AbilityAction action = new AbilityAction(out);
+        int opponentLife = Integer.parseInt(action.getOpponentValue("life", playerID, gameID));
+        return opponentLife <= 0;
     }
 
     /**
      * Set the starting priority for the next fight, based on which player started the
-     * previous fight.
+     * previous fight. Also check whether the other player is ready to start a new fight.
+     * Start priority "-2" means the player will not start the next game.
+     * Start priority "-3" means the player will start the next game.
      */
     public int setNextFightStartPriority(HttpServletResponse response, HttpServletRequest request, String playerID, String gameID) throws SQLException, InterruptedException {
         CookieFunctionality cf = new CookieFunctionality();
@@ -173,20 +194,20 @@ public class PlayerInteractions {
         if(playerStart) {
             //Next round, the player should NOT start the game.
             cf.replaceCookieValue(response, request, "playerStart", "false");
-            db.updateTable("player", "turns", "0", "playerID", playerID);
-            startPriority = 0;
+            db.updateTable("player", "turns", "-2", "playerID", playerID);
+            startPriority = -2;
         }
         else {
             //Next round, the player SHOULD start the game.
             cf.replaceCookieValue(response, request, "playerStart", "true");
-            db.updateTable("player", "turns", "1", "playerID", playerID);
-            startPriority = 1;
+            db.updateTable("player", "turns", "-3", "playerID", playerID);
+            startPriority = -3;
         }
         int i = 0;
         while (i <= 150) {
             //Wait for other player to get ready.
             int opponentReady = Integer.parseInt(getOpponentAttribute("turns", playerID, gameID));
-            if (opponentReady == 0 || opponentReady == 1) {
+            if (opponentReady < -1) {
                 return startPriority;
             }
             i++;

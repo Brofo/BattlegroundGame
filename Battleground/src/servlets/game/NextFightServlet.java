@@ -51,11 +51,12 @@ public class NextFightServlet extends HttpServlet {
             addParam.addFighterParameters(playerID, gameID);
             addParam.addCookieNameParameters();
 
-            if(startPriority == 0) {
+            if(startPriority == -2) {
+                db.updateTable("player", "turns", "0", "playerID", playerID);
                 request.getRequestDispatcher("gameWait.jsp").forward(request, response);
             }
 
-            if(startPriority == 1) {
+            if(startPriority == -3) {
                 addParam.addAbilityParameters(playerFighterName, playerID, gameID);
 
                 //Put turns back to 0. This will be incremented when the player uses an ability.

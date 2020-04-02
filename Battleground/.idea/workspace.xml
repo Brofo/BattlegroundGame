@@ -2,28 +2,17 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Battleground:war exploded" />
+      <artifact name="Battleground:war" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/servlets/game/NextFightServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fightOver.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/gameOver.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/browser/AbilityHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/browser/AbilityHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/browser/CookieFunctionality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/browser/CookieFunctionality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/database/DbLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/DbLib.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/AAA_FighterSetUpClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/AAA_FighterSetUpClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterChad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterChad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterGopnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/FighterGopnik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/game/NextFightServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/NextFightServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/game/UseAbilityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/UseAbilityServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/game/WaitForTurnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/WaitForTurnServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/gameAction.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameAction.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/gameWait.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameWait.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +67,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../jspandjs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -220,7 +209,11 @@
       <workItem from="1584524219838" duration="20276000" />
       <workItem from="1584619250510" duration="9883000" />
       <workItem from="1585557328484" duration="23699000" />
-      <workItem from="1585647601986" duration="286000" />
+      <workItem from="1585647601986" duration="1763000" />
+      <workItem from="1585765728286" duration="1509000" />
+      <workItem from="1585767370550" duration="348000" />
+      <workItem from="1585815250444" duration="6218000" />
+      <workItem from="1585821890898" duration="652000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;Commit with sample code&quot;">
       <created>1581365843906</created>
@@ -294,7 +287,13 @@
       <option name="presentableId" value="LOCAL−00012" />
       <updated>1584632638997</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL−00013" summary="- health is now baseHealth and currentHealth&#10;- energy is now baseEnergy and currentEnergy&#10;- Critical hits and dodges are displayed when they occur.&#10;- The player who starts a fight will be 2nd the next round. Each round&#10;  the player will swap who starts.">
+      <created>1585647978892</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1585647978892</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +326,7 @@
     <MESSAGE value="- It is possible for two players to fight" />
     <MESSAGE value="- Added more documentation&#10;- Fixed a bug&#10;- Added Fighter Gopnik" />
     <MESSAGE value="- split health into maxHealth and currentHealth" />
-    <option name="LAST_COMMIT_MESSAGE" value="- split health into maxHealth and currentHealth" />
+    <MESSAGE value="- health is now baseHealth and currentHealth&#10;- energy is now baseEnergy and currentEnergy&#10;- Critical hits and dodges are displayed when they occur.&#10;- The player who starts a fight will be 2nd the next round. Each round&#10;  the player will swap who starts." />
+    <option name="LAST_COMMIT_MESSAGE" value="- health is now baseHealth and currentHealth&#10;- energy is now baseEnergy and currentEnergy&#10;- Critical hits and dodges are displayed when they occur.&#10;- The player who starts a fight will be 2nd the next round. Each round&#10;  the player will swap who starts." />
   </component>
 </project>
