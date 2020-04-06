@@ -11,7 +11,10 @@
     <title>Title</title>
 </head>
 <body>
-    <font size="+2">${playerName} [${playerFighter}]</font> Life left: ${playerLife} <br>
+    <font size="+2">${playerName} [${playerFighter}]</font>
+    Life left: <font size="+2" color="green">${playerLife} </font>
+    Gold: <font size="+2" color="#daa520">${gold}</font><br>
+
     Health: ${playerCurrentHealth} / ${playerBaseHealth} <br>
     Energy: ${playerCurrentEnergy} <br>
     Damage: ${playerDamage} <br>

@@ -1,13 +1,17 @@
 package classes.browser;
 
+import classes.database.DbLib;
 import classes.fighterModule.AbilityAction;
 import classes.fighterModule.AbilityDescription;
 import classes.fighterModule.SelectFighter;
 import classes.fighterModule.fighters.Fighter;
+import classes.itemModule.Item;
+import classes.itemModule.ItemCollection;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -139,6 +143,39 @@ public class AddRequestParameters {
             if(playerDodged.equals("1")) {
                 request.setAttribute("playerDodged", "Dodge!");
             }
+        }
+    }
+
+    public void addGoldParameters(String playerID) throws SQLException {
+        DbLib db = new DbLib(out);
+        String gold = db.getField("gold", "player", "playerID", playerID);
+        request.setAttribute("gold", gold);
+    }
+
+    public void addMysteryItemParameters(Item item) {
+        request.setAttribute("itemName", item.getName());
+        request.setAttribute("itemAttribute", item.getFrontendAttribute());
+        request.setAttribute("itemAmount", item.getAmount());
+        request.setAttribute("itemStorePrice", Integer.toString(item.getPrice()));
+        request.setAttribute("itemSellPrice", Integer.toString(item.getSellPrice()));
+    }
+
+    public void addStoreParameters() {
+        ItemCollection itemCol = new ItemCollection();
+        ArrayList<Item> items = itemCol.getAllItems();
+
+        int i = 1;
+        for(Item item : items) {
+            String itemName = "itemName" + i;
+            String itemAttribute = "itemAttribute" + i;
+            String itemAmount = "itemAmount" + i;
+            String itemPrice = "itemPrice" + i;
+
+            request.setAttribute(itemName, item.getName());
+            request.setAttribute(itemAttribute, item.getFrontendAttribute());
+            request.setAttribute(itemAmount, item.getAmount());
+            request.setAttribute(itemPrice, Integer.toString(item.getPrice()));
+            i++;
         }
     }
 }

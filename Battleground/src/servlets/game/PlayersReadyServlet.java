@@ -42,6 +42,7 @@ public class PlayersReadyServlet extends HttpServlet {
 
             int ready = pi.selectRandomPlayerToStart(playerID, gameID);
             addParam.addFighterParameters(playerID, gameID);
+            addParam.addGoldParameters(playerID);
             addParam.addCookieNameParameters();
 
             if(ready == 0) {

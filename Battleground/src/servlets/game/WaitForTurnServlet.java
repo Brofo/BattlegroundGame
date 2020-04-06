@@ -6,6 +6,7 @@ import classes.database.DbLib;
 import classes.database.PlayerInteractions;
 import classes.fighterModule.SelectFighter;
 import classes.fighterModule.fighters.Fighter;
+import classes.itemModule.Gold;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,12 +33,14 @@ public class WaitForTurnServlet extends HttpServlet {
         PlayerInteractions pi = new PlayerInteractions(out);
         CookieFunctionality cf = new CookieFunctionality();
         AddRequestParameters addParam = new AddRequestParameters(request, out);
+        Gold gold = new Gold();
 
         String playerID = cf.getValue(request, "playerID");
         String gameID = cf.getValue(request, "gameID");
         String playerFighterName = cf.getValue(request, "playerFighter");
 
         try {
+            addParam.addGoldParameters(playerID);
             boolean opponentFinished = pi.waitForOpponentAbility(playerID, gameID, request);
             if(opponentFinished) {
                 if(pi.checkIfFightIsLost(playerID)) {
@@ -45,6 +48,8 @@ public class WaitForTurnServlet extends HttpServlet {
                         addParam.addFightOverParameters(playerID, gameID, false);
                         request.getRequestDispatcher("gameOver.jsp").forward(request, response);
                     }
+                    gold.addGoldToDB("5", playerID, out);
+                    addParam.addGoldParameters(playerID);
                     addParam.addFightOverParameters(playerID, gameID, false);
                     request.getRequestDispatcher("fightOver.jsp").forward(request, response);
                 }

@@ -41,6 +41,8 @@ public class NextFightServlet extends HttpServlet {
 
 
         try {
+            addParam.addGoldParameters(playerID);
+
             //Restore values in the player's fighter for the next fight.
             Fighter playerFighter = new SelectFighter(out).getFighter(playerFighterName, playerID, gameID);
             playerFighter.restoreHealthAndEnergy();

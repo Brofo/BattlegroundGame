@@ -2,17 +2,36 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Battleground:war" />
+      <artifact name="Battleground:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/gameOver.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/itemModule/Gold.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/itemModule/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/itemModule/ItemCollection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/itemModule/MysteryChest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlets/items/BuyItemServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlets/items/ClaimMysteryChestServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlets/items/OpenMysteryChestServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/mysteryChest.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/mysteryChestGold.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/mysteryChestItem.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/store.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/database/PlayerInteractions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/TestClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/TestServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/game/NextFightServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/NextFightServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/game/UseAbilityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/UseAbilityServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/game/WaitForTurnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/WaitForTurnServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fightOver.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/fightOver.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/gameAction.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameAction.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/gameWait.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameWait.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/testingJSP.jsp" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +56,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="jsf" />
         <option value="Class" />
         <option value="Jsp File" />
       </list>
@@ -214,6 +234,10 @@
       <workItem from="1585767370550" duration="348000" />
       <workItem from="1585815250444" duration="6218000" />
       <workItem from="1585821890898" duration="652000" />
+      <workItem from="1585825826784" duration="654000" />
+      <workItem from="1585908123483" duration="14263000" />
+      <workItem from="1585991708182" duration="11546000" />
+      <workItem from="1586164151514" duration="8189000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;Commit with sample code&quot;">
       <created>1581365843906</created>
@@ -293,7 +317,13 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1585647978892</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="- Two players can complete a whole game.">
+      <created>1585825869320</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1585825869320</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +357,7 @@
     <MESSAGE value="- Added more documentation&#10;- Fixed a bug&#10;- Added Fighter Gopnik" />
     <MESSAGE value="- split health into maxHealth and currentHealth" />
     <MESSAGE value="- health is now baseHealth and currentHealth&#10;- energy is now baseEnergy and currentEnergy&#10;- Critical hits and dodges are displayed when they occur.&#10;- The player who starts a fight will be 2nd the next round. Each round&#10;  the player will swap who starts." />
-    <option name="LAST_COMMIT_MESSAGE" value="- health is now baseHealth and currentHealth&#10;- energy is now baseEnergy and currentEnergy&#10;- Critical hits and dodges are displayed when they occur.&#10;- The player who starts a fight will be 2nd the next round. Each round&#10;  the player will swap who starts." />
+    <MESSAGE value="- Two players can complete a whole game." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Two players can complete a whole game." />
   </component>
 </project>

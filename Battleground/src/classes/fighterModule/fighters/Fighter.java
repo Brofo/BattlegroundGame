@@ -48,7 +48,7 @@ public abstract class Fighter {
      * will just restore the currentHealth and currentEnergy of the fighter.
      */
     public void restoreHealthAndEnergy() throws SQLException {
-        setFighterToBaseValues(); //Set fighter to base values, just to restore health and energy.
+        syncFighterWithDB(); //Sync fighter with DB in case the player bought health or energy items.
         action.changeOwnValue(playerID,"currentHealth", Double.toString(this.baseHealth));
         action.changeOwnValue(playerID, "currentEnergy", Integer.toString(this.baseEnergy));
     }

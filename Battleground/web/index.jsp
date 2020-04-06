@@ -23,5 +23,12 @@
         </select><br>
         <input type="submit" value="Play!">
       </form>
+
+
+
+        <br><br><br><br>
+        <form action="mysteryChest.jsp">
+            <input type="submit" value="Test mystery chest">
+        </form>
   </body>
 </html>

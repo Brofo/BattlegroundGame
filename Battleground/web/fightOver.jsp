@@ -13,16 +13,12 @@
 <body>
     <font size="+2">The winner of the fight is </font> <font size="+4" color="#b22222">${winnerName}</font><br>
     ${loserName} has <font size="+2" color="green"> ${loserLife} </font> live(s) left.<br>
-    ${winnerName} has <font size="+2" color="green"> ${winnerLife} </font> live(s) left.<br>
+    ${winnerName} has <font size="+2" color="green"> ${winnerLife} </font> live(s) left.<br> <br>
 
-    <form action="..." method="get">
-        <input type="submit" value="Go to shop">
-    </form>
+    You currently have <font size="+2" color="#daa520">${gold}</font> gold.
 
-    <br>
-
-    <form action="servlets.game.NextFightServlet" method="get">
-        <input type="submit" value="Continue to next fight">
+    <form action="mysteryChest.jsp">
+        <input type="submit" value="Continue">
     </form>
 
 </body>

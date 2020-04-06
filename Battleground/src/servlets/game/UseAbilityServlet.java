@@ -7,6 +7,7 @@ import classes.database.DbLib;
 import classes.database.PlayerInteractions;
 import classes.fighterModule.SelectFighter;
 import classes.fighterModule.fighters.Fighter;
+import classes.itemModule.Gold;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +35,7 @@ public class UseAbilityServlet extends HttpServlet {
         CookieFunctionality cf = new CookieFunctionality();
         AddRequestParameters addParam = new AddRequestParameters(request, out);
         PlayerInteractions pi = new PlayerInteractions(out);
+        Gold gold = new Gold();
 
         String playerID = cf.getValue(request, "playerID");
         String gameID = cf.getValue(request, "gameID");
@@ -43,6 +45,7 @@ public class UseAbilityServlet extends HttpServlet {
         String abilityStdName = ah.getStandardAbilitySelected(request);
 
         try {
+            addParam.addGoldParameters(playerID);
             //Ability is used if the player has enough energy.
             boolean enoughEnergy = playerFighter.useAbility(abilityStdName);
             if (enoughEnergy) {
@@ -52,7 +55,9 @@ public class UseAbilityServlet extends HttpServlet {
                         request.getRequestDispatcher("gameOver.jsp").forward(request, response);
                     }
                     else {
+                        gold.addGoldToDB("5", playerID, out);
                         addParam.addFightOverParameters(playerID, gameID, true);
+                        addParam.addGoldParameters(playerID);
                         request.getRequestDispatcher("fightOver.jsp").forward(request, response);
                     }
                 }
