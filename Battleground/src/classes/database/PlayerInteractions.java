@@ -208,10 +208,11 @@ public class PlayerInteractions {
             //Wait for other player to get ready.
             int opponentReady = Integer.parseInt(getOpponentAttribute("turns", playerID, gameID));
             if (opponentReady < -1) {
+                TimeUnit.SECONDS.sleep(2); //In case the other player is waiting for loop.
                 return startPriority;
             }
             i++;
-            TimeUnit.SECONDS.sleep(2); //Wait 2 seconds before looping again.
+            TimeUnit.SECONDS.sleep(1); //Wait 2 seconds before looping again.
         }
         System.out.println("Error in PlayerInteractions - setNextFightStartPriority()");
         return 0;
