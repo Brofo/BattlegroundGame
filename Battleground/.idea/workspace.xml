@@ -7,31 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a937fa15-08fd-470a-aa94-fd279725c5fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/classes/itemModule/Gold.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/itemModule/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/itemModule/ItemCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/itemModule/MysteryChest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlets/items/BuyItemServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlets/items/ClaimMysteryChestServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlets/items/OpenMysteryChestServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/mysteryChest.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/mysteryChestGold.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/mysteryChestItem.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/store.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/TestClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/browser/AddRequestParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/fighterModule/fighters/Fighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/TestServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/game/NextFightServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/NextFightServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/PlayersReadyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/game/UseAbilityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/UseAbilityServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/game/WaitForTurnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/game/WaitForTurnServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fightOver.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/fightOver.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/gameAction.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameAction.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/gameWait.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/gameWait.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/testingJSP.jsp" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -237,7 +214,7 @@
       <workItem from="1585825826784" duration="654000" />
       <workItem from="1585908123483" duration="14263000" />
       <workItem from="1585991708182" duration="11546000" />
-      <workItem from="1586164151514" duration="8189000" />
+      <workItem from="1586164151514" duration="8649000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;Commit with sample code&quot;">
       <created>1581365843906</created>
@@ -323,7 +300,13 @@
       <option name="presentableId" value="LOCAL−00014" />
       <updated>1585825869320</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL−00015" summary="Battleground Version 1 is complete!&#10;- Added Item module to the game. This includes gold, mystery chest and&#10;store.">
+      <created>1586173519994</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1586173519994</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +341,7 @@
     <MESSAGE value="- split health into maxHealth and currentHealth" />
     <MESSAGE value="- health is now baseHealth and currentHealth&#10;- energy is now baseEnergy and currentEnergy&#10;- Critical hits and dodges are displayed when they occur.&#10;- The player who starts a fight will be 2nd the next round. Each round&#10;  the player will swap who starts." />
     <MESSAGE value="- Two players can complete a whole game." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Two players can complete a whole game." />
+    <MESSAGE value="Battleground Version 1 is complete!&#10;- Added Item module to the game. This includes gold, mystery chest and&#10;store." />
+    <option name="LAST_COMMIT_MESSAGE" value="Battleground Version 1 is complete!&#10;- Added Item module to the game. This includes gold, mystery chest and&#10;store." />
   </component>
 </project>
