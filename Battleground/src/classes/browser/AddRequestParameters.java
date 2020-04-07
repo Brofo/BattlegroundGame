@@ -152,6 +152,9 @@ public class AddRequestParameters {
         request.setAttribute("gold", gold);
     }
 
+    /**
+     * Creates new parameters by incrementing number for each item.
+     */
     public void addMysteryItemParameters(Item item) {
         request.setAttribute("itemName", item.getName());
         request.setAttribute("itemAttribute", item.getFrontendAttribute());
