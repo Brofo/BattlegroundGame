@@ -14,12 +14,14 @@ Databsase file - Sindre
 Built with Tomcat 9.0.27.
 
 Acknowledgments:
+--------------------------------
 
 Stackoverflow.com
 
 The project is licensed by the GNU General Public License v3.0, please read the license.
 
 Please read
+--------------------------------
 
 Contributing guidelines
 
