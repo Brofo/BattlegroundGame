@@ -1,4 +1,5 @@
 Battleground
+--------------
 
 This is a game in development by 3 students at the University of Agder in Norway. Battleground is a strategy based game, where players pick fighters and give these fighters items that upgrade their attributes. Then players use these fighters to compete against each other. The player that wins is rewarded more ingame currency and can use this to upgrade attributes of the fighter even further.
 Players must develope strategies as players must think both agressivly and defensivly.
