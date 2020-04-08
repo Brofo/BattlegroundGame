@@ -13,6 +13,9 @@ Databsase file - Sindre
 
 Built with Tomcat 9.0.27.
 
+DbTool in the database module needs to be adapted to your personal database.
+In order to use your own database, you must change the value on line 25 in this class, there should be localhost in this line "java:comp/env/jdbc/localhost". 
+
 Acknowledgments:
 --------------------------------
 
