@@ -6,7 +6,8 @@ Players must develope strategies as players must think both agressivly and defen
 Everyone is allowed to fork the project, and use the code for whatever purpose, except using this code to develope closed code project.
 
 Prerequisits to run the project: 
-Databse file
+Databsase file - Sindre 
+
 
 Built with Tomcat 9.0.27.
 
