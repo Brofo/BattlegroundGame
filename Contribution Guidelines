@@ -5,7 +5,9 @@ This project is written in java, but are also heavy influenced by HTML due to ou
 
 To report a bug:
 
+
 Firstly have proof that this is a bug, test it and document the reason for the bug. Either create a soulution or contact us via mail(referenced in README).
 Else you can try to request a pull request, this will require solid documentation. 
 
 To suggest new features, we can be easily contacted on mail(referenced in README). 
+But you are also free to adapt the project however you want, except if this inteferes with the license. 
