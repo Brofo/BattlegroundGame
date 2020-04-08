@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Game Over</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <font size="+3">Game over. The winner is</font><br>

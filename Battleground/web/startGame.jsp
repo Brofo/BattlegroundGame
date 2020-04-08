@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Start A Game</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <form action="servlets.menu.CreateGameServlet" method="get">

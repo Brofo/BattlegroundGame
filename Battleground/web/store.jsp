@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Welcome to the store</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <h1>Welcome to the store!</h1>

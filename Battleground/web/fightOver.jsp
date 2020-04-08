@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Fight Over</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <font size="+2">The winner of the fight is </font> <font size="+4" color="#b22222">${winnerName}</font><br>

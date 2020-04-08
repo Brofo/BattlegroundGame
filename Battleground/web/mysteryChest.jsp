@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>Mystery Chest</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+
 </head>
 <body>
     <h1>Mystery Chest</h1>
