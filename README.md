@@ -8,7 +8,9 @@ Everyone is allowed to fork the project, and use the code for whatever purpose, 
 
 Prerequisits to run the project:
 --------------------------------
-Databsase file - Sindre 
+Database:
+http://database.battlegrounds.games/
+Copy the contents of the link to create the database in SQL.
 
 
 Built with Tomcat 9.0.27.
