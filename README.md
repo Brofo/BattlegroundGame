@@ -10,6 +10,7 @@ Prerequisits to run the project:
 --------------------------------
 Database:
 http://database.battlegrounds.games/
+
 Copy the contents of the link to create the database in SQL.
 
 
