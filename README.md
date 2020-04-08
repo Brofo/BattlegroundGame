@@ -8,16 +8,17 @@ Everyone is allowed to fork the project, and use the code for whatever purpose, 
 
 Prerequisits to run the project:
 --------------------------------
-Database:
+You need DBMS to run SQL, such as MySQL: https://www.mysql.com/
+
+**Create database by copying the contents from here:**
 http://database.battlegrounds.games/
-
-Copy the contents of the link to create the database in SQL.
-
-
-Built with Tomcat 9.0.27.
 
 DbTool in the database module needs to be adapted to your personal database.
 In order to use your own database, you must change the value on line 25 in this class, there should be localhost in this line "java:comp/env/jdbc/localhost". 
+
+
+**Built with Tomcat 9.0.27.**
+
 
 Acknowledgments:
 --------------------------------
