@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Battleground Game</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     Your name: ${playerName}  Fighter: ${playerFighter}<br>
