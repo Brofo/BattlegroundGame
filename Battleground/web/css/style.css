@@ -1,16 +1,70 @@
 @font-face {
     font-family: titleFont;
-    src: url("fonts/ancienthellenic-webfont.ttf");
+    src: url("../res/Dalek.ttf");
 }
-
 
 body {
-    background-image: url("pictures/battlegroundBackground.jpg");
+    background-color: #df915e;
 }
 h1 {
-    font-family: 'battlegroundFont', serif;
-    color: firebrick;
+    font-family: 'Dalek', serif;
+    color: #b22222;
     size: 30px;
+}
+
+.scroll{
+    background-image: url("../res/scrollSide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85rem;
+    height: 58rem;
+    position:relative;
+}
+.logo{
+    position: relative;
+   text-align: center;
+    top:20%;
+    margin-left: auto;
+    margin-right: auto;
+    width:60%;
+
+}
+.logo img{
+    position: center;
+    width: 100%;
+}
+.menu{
+    text-align: center;
+    position: absolute;
+    top:38%;
+    left: 25%;
+    font-family: titleFont;
+    font-size: 250%;
+    color:#B0A5A4;
+    width: 50%;
+}
+.un input{
+    font-family: titleFont;
+    text-align: center;
+   font-size: 50%;
+    color:#b22222;
+    background-color: #f7e5b7;
+}
+.cf select{
+    font-family: titleFont;
+    text-align: center;
+    font-size: 50%;
+    color: #b22222;
+    background-color: #f7e5b7;
+}
+.Start input{
+   position: relative;
+   width: 25%;
+    text-align: center;
+    margin-top: 5%;
 }
 
 .playerFighter {
@@ -22,4 +76,70 @@ h1 {
 .opponentFighter {
     width:42%;
     float: left;
+}
+.create p{
+    font-size: 2rem;
+}
+.create input{
+    position: relative;
+    width: 35%;
+}
+
+.id input{
+    position: relative;
+    font-family: titleFont;
+    text-align: center;
+    font-size: 50%;
+    color:#b22222;
+    background-color: #f7e5b7;
+    width: 35%;
+}
+.id{
+    position: relative;
+    bottom:3rem;
+
+}
+.join input{
+    position: relative;
+    bottom:3rem;
+    width: 35%;
+    text-align: center;
+}
+.Cmenu{
+    top:15rem;
+    text-align: center;
+    position: absolute;
+    left: 25%;
+    font-family: titleFont;
+    font-size: 2.5rem;
+    color:#B0A5A4;
+    width: 50%;
+}
+.cmenu p{
+    font-size:2rem;
+}
+.bs{
+    position: relative;
+    border: solid 2px aqua;
+    width: 195vh;
+    height: 97.5vh;
+}
+.bs img{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    width: 117rem;
+    height: 59rem;
+}
+.grid{
+     display: grid;
+     grid-template-columns:25rem 25fr 25fr;
+     grid-template-rows: 50fr 50fr 50fr;
+ }
+.pn{
+
+}
+.on{
+
+
 }

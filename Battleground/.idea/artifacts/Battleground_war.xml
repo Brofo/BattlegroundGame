@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Battleground_war</output-path>
     <root id="archive" name="Battleground_war.war">
       <element id="artifact" artifact-name="Battleground:war exploded" />
+      <element id="library" level="project" name="Java EE 6-Java EE 6" />
     </root>
   </artifact>
 </component>
