@@ -14,11 +14,16 @@
 <body>
 <div class="bs">
 <img src="res/scrollSide.png"/>
-<div class="grid">
-    <div class="pn"> Your name: ${playerName}  Fighter: ${playerFighter}</div>
-    <div class="on"> Opponent name: ${opponentName}  Fighter: ${opponentFighter}</div>
+<div class="readygrid">
+    <div class="pcard"></div>
+    <div class="ocard"></div>
+    <div class="vers"></div>
+    <div class="pname">${playerName}: ${playerFighter}</div>
+    <div class="oname">${opponentName}: ${opponentFighter}</div>
+    <div class="ready">
     <form action="servlets.game.PlayersReadyServlet" method="get">
-        <input type="submit" value="READY">
+        <input type="image" src="res/Ready.png">
+       </div>
     </form>
     </div>
     </div>

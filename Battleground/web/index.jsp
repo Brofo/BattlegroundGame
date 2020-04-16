@@ -31,7 +31,7 @@
         Choose a fighter:<br/>
         <select id="fighter" name="fighterName">
             <option name="Chad">Chad</option>
-            <option name="Gopnik">Gok</option>
+            <option name="Gopnik">Gopnik</option>
         </select>
         </div>
         <div class="Start">
