@@ -1,0 +1,25 @@
+@font-face {
+    font-family: titleFont;
+    src: url("fonts/ancienthellenic-webfont.ttf");
+}
+
+
+body {
+    background-image: url("pictures/battlegroundBackground.jpg");
+}
+h1 {
+    font-family: 'battlegroundFont', serif;
+    color: firebrick;
+    size: 30px;
+}
+
+.playerFighter {
+    width:55%;
+    margin-right:2%;
+    float: left;
+}
+
+.opponentFighter {
+    width:42%;
+    float: left;
+}

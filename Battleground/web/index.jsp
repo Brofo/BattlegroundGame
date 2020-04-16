@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" session="false"%>
 <html>
   <head>
-    <title>Battleground</title>
+      <title>Battleground</title>
+      <link href="css/style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
       <font size="+5" color="#b22222"><b>Battleground</b></font><br><br>
