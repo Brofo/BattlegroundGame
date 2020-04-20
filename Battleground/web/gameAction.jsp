@@ -55,6 +55,5 @@
         Critical chance: ${opponentCriticalChance} <br>
         Dodge chance: ${opponentDodgeChance} <br> <br>
     </div>
-
 </body>
 </html>
