@@ -12,10 +12,20 @@
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    Your name: ${playerName}  Fighter: ${playerFighter}<br>
-    Opponent name: ${opponentName}  Fighter: ${opponentFighter}<br>
+<div class="bs">
+<img src="res/scrollSide.png"/>
+<div class="readygrid">
+    <div class="pcard"></div>
+    <div class="ocard"></div>
+    <div class="vers"></div>
+    <div class="pname">${playerName}: ${playerFighter}</div>
+    <div class="oname">${opponentName}: ${opponentFighter}</div>
+    <div class="ready">
     <form action="servlets.game.PlayersReadyServlet" method="get">
-        <input type="submit" value="READY">
+        <input type="image" src="res/Ready.png">
+       </div>
     </form>
+    </div>
+    </div>
 </body>
 </html>

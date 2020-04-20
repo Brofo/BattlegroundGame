@@ -1,16 +1,70 @@
 @font-face {
     font-family: titleFont;
-    src: url("fonts/ancienthellenic-webfont.ttf");
+    src: url("../res/Dalek.ttf");
 }
-
 
 body {
-    background-image: url("pictures/battlegroundBackground.jpg");
+    background-color: #df915e;
 }
 h1 {
-    font-family: 'battlegroundFont', serif;
-    color: firebrick;
+    font-family: 'Dalek', serif;
+    color: #b22222;
     size: 30px;
+}
+
+.scroll{
+    background-image: url("../res/scrollSide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85rem;
+    height: 58rem;
+    position:relative;
+}
+.logo{
+    position: relative;
+   text-align: center;
+    top:20%;
+    margin-left: auto;
+    margin-right: auto;
+    width:60%;
+
+}
+.logo img{
+    position: center;
+    width: 100%;
+}
+.menu{
+    text-align: center;
+    position: absolute;
+    top:38%;
+    left: 25%;
+    font-family: titleFont;
+    font-size: 250%;
+    color:#B0A5A4;
+    width: 50%;
+}
+.un input{
+    font-family: titleFont;
+    text-align: center;
+    font-size: 50%;
+    color:#b22222;
+    background-color: #f7e5b7;
+}
+.cf select{
+    font-family: titleFont;
+    text-align: center;
+    font-size: 50%;
+    color: #b22222;
+    background-color: #f7e5b7;
+}
+.Start input{
+   position: relative;
+   width: 25%;
+    text-align: center;
+    margin-top: 5%;
 }
 
 .playerFighter {
@@ -22,4 +76,127 @@ h1 {
 .opponentFighter {
     width:42%;
     float: left;
+}
+.create p{
+    font-size: 2rem;
+}
+.create input{
+    position: relative;
+    width: 35%;
+}
+
+.id input{
+    position: relative;
+    font-family: titleFont;
+    text-align: center;
+    font-size: 50%;
+    color:#b22222;
+    background-color: #f7e5b7;
+    width: 35%;
+}
+.id{
+    position: relative;
+    bottom:3rem;
+
+}
+.join input{
+    position: relative;
+    bottom:3rem;
+    width: 35%;
+    text-align: center;
+}
+.Cmenu{
+    top:15rem;
+    text-align: center;
+    position: absolute;
+    left: 25%;
+    font-family: titleFont;
+    font-size: 2.5rem;
+    color:#B0A5A4;
+    width: 50%;
+}
+.Cmenu p{
+    font-size:2rem;
+}
+.bs{
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    width: 190vh;
+    height: 100vh;
+    z-index: 1;
+}
+.bs img{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.readygrid{
+    height: 100vh;
+    z-index: 2;
+     display: grid;
+     grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
+     grid-template-rows:1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    ". pn . on ."
+    ". pc . oc ."
+    ". pc vs oc ."
+    ". pc rdy oc .";
+ }
+.pname{
+    z-index: 2;
+ grid-area: pn;
+    text-align: center;
+    align-self: end;
+    font-family: titleFont;
+    font-size: 2rem;
+    color:#B0A5A4;
+}
+.oname{
+    z-index: 2;
+    grid-area: on;
+    text-align: center;
+    align-self: end;
+    font-family: titleFont;
+    font-size: 2rem;
+    color:#B0A5A4;
+}
+.pcard{
+    background-position: center;
+    grid-area: pc;
+    z-index: 2;
+    background-image: url("../res/Card.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ocard{
+    background-position: center;
+    grid-area: oc;
+    z-index: 2;
+    background-image: url("../res/Card.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.vers{
+    grid-area: vs;
+    z-index: 2;
+    background-position: center;
+    background-image: url("../res/VS.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.ready{
+    align-self: end;
+    grid-area: rdy;
+    z-index: 2;
+    width: 100%;
+    height: 50%;
+}
+.ready input{
+    width: 100%;
+    height: 100%;
 }

@@ -44,6 +44,7 @@ public class AddRequestParameters {
      */
     public void addFighterParameters(String playerID, String gameID) throws SQLException {
         AbilityAction action = new AbilityAction(out);
+        String opponentID = action.getOpponentValue("playerID", playerID, gameID);
 
         request.setAttribute("playerLife", action.getPlayerValue("life", playerID));
         request.setAttribute("playerBaseHealth", action.getPlayerValue("baseHealth", playerID));
@@ -53,6 +54,7 @@ public class AddRequestParameters {
         request.setAttribute("playerArmour", action.getPlayerValue("armour", playerID));
         request.setAttribute("playerCriticalChance", action.getPlayerValue("critical_chance", playerID) + "%");
         request.setAttribute("playerDodgeChance", action.getPlayerValue("dodge_chance", playerID) + "%");
+        request.setAttribute("playerFighterPic", getFighterPic(playerID, gameID));
 
         request.setAttribute("opponentLife", action.getOpponentValue("life", playerID, gameID));
         request.setAttribute("opponentBaseHealth", action.getOpponentValue("baseHealth", playerID, gameID));
@@ -62,6 +64,19 @@ public class AddRequestParameters {
         request.setAttribute("opponentArmour", action.getOpponentValue("armour", playerID, gameID));
         request.setAttribute("opponentCriticalChance", action.getOpponentValue("critical_chance", playerID, gameID) + "%");
         request.setAttribute("opponentDodgeChance", action.getOpponentValue("dodge_chance", playerID, gameID) + "%");
+        request.setAttribute("opponentFighterPic", getFighterPic(opponentID, gameID));
+    }
+
+    /**
+     * Returns the path of the picture that belongs to the specified fighter.
+     */
+    private String getFighterPic(String playerID, String gameID) throws SQLException {
+        AbilityAction action = new AbilityAction(out);
+        String fighterName = action.getPlayerValue("fighterName", playerID);
+        SelectFighter sf = new SelectFighter(out);
+        Fighter fighter = sf.getFighter(fighterName, playerID, gameID);
+        fighter.setFighterToBaseValues();
+        return fighter.getFighterPic();
     }
 
     /**

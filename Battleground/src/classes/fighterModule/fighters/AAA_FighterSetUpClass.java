@@ -60,6 +60,7 @@ public class AAA_FighterSetUpClass extends Fighter {
         this.armour = 0;
         this.critical_chance = 0;
         this.dodge_chance = 0;
+        this.fighterPic = "css/fighterPics/fighterPic.jpg";
     }
 
     @Override

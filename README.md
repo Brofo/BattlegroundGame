@@ -1,8 +1,9 @@
 Battleground
 =============
 
-This is a game in development by 3 students at the University of Agder in Norway. Battleground is a strategy based game, where players pick fighters and give these fighters items that upgrade their attributes. Then players use these fighters to compete against each other. The player that wins is rewarded more ingame currency and can use this to upgrade attributes of the fighter even further.
-Players must develope strategies as players must think both agressivly and defensivly.
+This is a game in development by three students at the University of Agder in Norway. Battleground is a strategy based game, where each player picks a fighter that will be used to compete against the other player. Each fighter has unique abilities and starting attributes which gives the opportunity to play with different styles. The attributes can be upgraded during the course of the game, by giving the fighters items. Items are received through a mystery chest, or can be purchased in the store with the in-game currency. Currency is also obtained through the mystery chests, and is also obtained at the end of each fight. In order to be good at the game, player's must develop strategies based on which attribute to upgrade, and by adapting to the opponent's choices.
+
+Click here to play the game: http://battlegrounds.games/
 
 Everyone is allowed to fork the project, and use the code for whatever purpose, except using this code to develope closed code project.
 
