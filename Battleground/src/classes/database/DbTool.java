@@ -22,7 +22,7 @@ public class DbTool {
         try {
             // Step 1: Allocate a classes.database 'Connection' object
             Context cont = new InitialContext();
-            DataSource ds = (DataSource)cont.lookup("java:comp/env/jdbc/localhost");
+            DataSource ds = (DataSource)cont.lookup("java:comp/env/jdbc/battlegroundDB");
             conn = ds.getConnection();
             if(conn != null){
                 return conn;
