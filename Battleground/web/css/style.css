@@ -4,6 +4,7 @@
 }
 
 body {
+    /* Website background color*/
     background-color: #df915e;
 }
 h1 {
@@ -12,6 +13,7 @@ h1 {
     size: 30px;
 }
 
+/* Background Scroll values*/
 .scroll{
     background-image: url("../res/scrollSide.png");
     background-repeat: no-repeat;
@@ -23,6 +25,7 @@ h1 {
     height: 58rem;
     position:relative;
 }
+/* Logo values*/
 .logo{
     position: relative;
    text-align: center;
@@ -30,12 +33,14 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width:60%;
-
 }
+
+/* Logo image values*/
 .logo img{
     position: center;
     width: 100%;
 }
+/* Index and startgame.jsp menu*/
 .menu{
     text-align: center;
     position: absolute;
@@ -46,6 +51,7 @@ h1 {
     color:#B0A5A4;
     width: 50%;
 }
+/*Index.jsp Username input values*/
 .un input{
     font-family: titleFont;
     text-align: center;
@@ -53,6 +59,8 @@ h1 {
     color:#b22222;
     background-color: #f7e5b7;
 }
+
+/*Index.jsp Change fighter values*/
 .cf select{
     font-family: titleFont;
     text-align: center;
@@ -60,6 +68,8 @@ h1 {
     color: #b22222;
     background-color: #f7e5b7;
 }
+
+/*Index.jsp Start button values*/
 .Start input{
    position: relative;
    width: 25%;
@@ -67,24 +77,17 @@ h1 {
     margin-top: 5%;
 }
 
-.playerFighter {
-    width:55%;
-    margin-right:2%;
-    float: left;
-}
-
-.opponentFighter {
-    width:42%;
-    float: left;
-}
+/*startGame.jsp Create new game paragraph values*/
 .create p{
     font-size: 2rem;
 }
+
+/*startGame.jsp Create new game input values*/
 .create input{
     position: relative;
     width: 35%;
 }
-
+/*startGame.jsp game id input values*/
 .id input{
     position: relative;
     font-family: titleFont;
@@ -94,17 +97,23 @@ h1 {
     background-color: #f7e5b7;
     width: 35%;
 }
+
+/*startGame.jsp game id values*/
 .id{
     position: relative;
     bottom:3rem;
 
 }
+
+/*startGame.jsp Join game input values*/
 .join input{
     position: relative;
     bottom:3rem;
     width: 35%;
     text-align: center;
 }
+
+/*createdGame.jsp menu values*/
 .Cmenu{
     top:15rem;
     text-align: center;
@@ -115,9 +124,13 @@ h1 {
     color:#B0A5A4;
     width: 50%;
 }
+
+/*createdGame.jsp menu paragraph values*/
 .Cmenu p{
     font-size:2rem;
 }
+
+/*gameReady.jsp background scroll values*/
 .bs{
     margin-left: auto;
     margin-right: auto;
@@ -126,6 +139,8 @@ h1 {
     height: 100vh;
     z-index: 1;
 }
+
+/*gameReady.jsp background scroll image values*/
 .bs img{
     margin-left: auto;
     margin-right: auto;
@@ -134,6 +149,8 @@ h1 {
     width: 100%;
     height: 100%;
 }
+
+/*gameReady.jsp grid values*/
 .readygrid{
     height: 100vh;
     z-index: 2;
@@ -146,6 +163,8 @@ h1 {
     ". pc vs oc ."
     ". pc rdy oc .";
  }
+
+/*gameReady.jsp player and fighter name values*/
 .pname{
     z-index: 2;
  grid-area: pn;
@@ -155,6 +174,8 @@ h1 {
     font-size: 2rem;
     color:#B0A5A4;
 }
+
+/*gameReady.jsp opponent and fighter name values*/
 .oname{
     z-index: 2;
     grid-area: on;
@@ -164,23 +185,28 @@ h1 {
     font-size: 2rem;
     color:#B0A5A4;
 }
+
+/*gameReady.jsp player card values*/
 .pcard{
-    background-position: center;
+    background-position: center top;
     grid-area: pc;
     z-index: 2;
-    background-image: url("../res/Card.png");
+    background-image: url("../res/Created Game card.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
 
+/*gameReady.jsp opponent card values*/
 .ocard{
     background-position: center;
     grid-area: oc;
     z-index: 2;
-    background-image: url("../res/Card.png");
+    background-image: url("../res/Created Game card.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+/*gameReady.jsp versus circle values*/
 .vers{
     grid-area: vs;
     z-index: 2;
@@ -189,6 +215,8 @@ h1 {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+/*gameReady.jsp Ready values*/
 .ready{
     align-self: end;
     grid-area: rdy;
@@ -196,7 +224,202 @@ h1 {
     width: 100%;
     height: 50%;
 }
+
+/*gameReady.jsp Ready input values*/
 .ready input{
     width: 100%;
     height: 100%;
+}
+
+/*gameAction.jsp grid values*/
+.fightgrid{
+    position: relative;
+    height: 100vh;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 2.3fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr 1fr 1fr 1fr  1fr 2.3fr;
+    grid-template-rows:1.3fr 1fr 1fr 1fr 1fr 0.5fr 1.5fr 1fr 1fr 1fr 1fr 1.3fr;
+    grid-template-areas:
+    ". . . . . . . . . . . . . ."
+    ". fpn fpn fpn fpn fpn . . fon fon fon fon fon ."
+    ". pc pc pc pc pc oa oa oc oc oc oc oc ."
+    ". pc pc pc pc pc oa oa oc oc oc oc oc ."
+    ". pc pc pc pc pc vs vs oc oc oc oc oc ."
+    ". pc pc pc pc pc vs vs oc oc oc oc oc ."
+    ". pc pc pc pc pc vs vs oc oc oc oc oc ."
+    ". pc pc pc pc pc w w oc oc oc oc oc ."
+    ". pc pc pc pc pc en en oc oc oc oc oc ."
+    ". atc1 atc1 atc1 atc2 atc2 atc2 atc3 atc3 atc3 atc4 atc4 atc4 ."
+    ". atc1s atc1s atc1s atc2s atc2s atc2s atc3s atc3s atc3s atc4s atc4s atc4s ."
+    ". . . . . . . . . . . . . ."
+    ;
+}
+
+/*gameAction.jsp/gameWait.jsp Player, fighter, gold and life values*/
+.fpname{
+    grid-area: fpn;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 2em;
+    color:#B0A5A4;
+}
+/*gameAction.jsp/gameWait.jsp Player, fighter stats values*/
+.pstats{
+    font-family: titleFont;
+    color: #75706D;
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 3;
+    grid-column: 3/span 5;
+    grid-row: 7/span 8;
+}
+
+/*gameAction.jsp makes text with mark tag in html green*/
+mark.green{
+    color: green;
+    background: none;
+}
+
+/*gameAction.jsp makes text with mark tag in html yellow*/
+mark.yellow{
+    color: yellow;
+    background: none;
+}
+
+/*gameAction.jsp makes text with mark tag in html red*/
+mark.red{
+    color: red;
+    background: none;
+}
+
+/*gameAction.jsp makes text with mark tag in html blue*/
+mark.blue{
+    color: deepskyblue;
+    background: none;
+}
+
+/*gameAction.jsp makes text with mark tag in html orange*/
+mark.orange{
+    color: orange;
+    background: none;
+}
+
+/*gameAction.jsp makes text with mark tag in html purple*/
+mark.purple{
+    color: purple;
+    background: none;
+}
+
+/*gameAction.jsp first attack button values*/
+.atc1{
+   align-self: end;
+    und-image: url("../res/Empty Input.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: atc1;
+    z-index: 3;
+    text-align: center;
+}
+
+/*gameAction.jsp first attack button stats values*/
+.atc1stat{
+    text-align: center;
+   grid-area: atc1s;
+    z-index: 3;
+}
+
+/*gameAction.jsp second attack button values*/
+.atc2{
+    align-self: end;
+    und-image: url("../res/Empty Input.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: atc2;
+    z-index: 3;
+    text-align: center;
+}
+
+/*gameAction.jsp second attack button stats values*/
+.atc2stat{
+    text-align: center;
+    grid-area: atc2s;
+    z-index: 3;
+}
+
+/*gameAction.jsp third attack button values*/
+.atc3{
+    align-self: end;
+    und-image: url("../res/Empty Input.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: atc3;
+    z-index: 3;
+    text-align: center;
+}
+
+/*gameAction.jsp third attack button stats values*/
+.atc3stat{
+    text-align: center;
+    grid-area: atc3s;
+    z-index: 3;
+}
+
+/*gameAction.jsp fourth attack button values*/
+.atc4{
+    align-self: end;
+    und-image: url("../res/Empty Input.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: atc4;
+    z-index: 6;
+    text-align: center;
+}
+
+/*gameAction.jsp fourth attack button stats values*/
+.atc4stat{
+    text-align: center;
+    grid-area: atc4s;
+    z-index: 3;
+}
+
+/*gameAction.jsp text that pops up when you dont have enough energy to use an attack values*/
+.noenergy{
+    grid-area: en;
+    text-align: center;
+    z-index: 3
+}
+
+/*gameAction.jsp/gameWait.jsp text that says opponents last used ability and if he got a critical hit values*/
+.oability{
+    grid-area: oa;
+    text-align: center;
+    z-index: 3
+}
+
+/*gameAction.jsp/gameWait.jsp Player, fighter name values*/
+.foname{
+    grid-area: fon;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 2em;
+    color:#B0A5A4;
+}
+
+/*gameAction.jsp/gameWait.jsp  opponent, fighter stats values*/
+.ostats{
+    font-family: titleFont;
+    color: #75706D;
+    font-size: 1.5rem;
+    z-index: 3;
+    grid-column: 10/span 12;
+    grid-row: 7/span 8;
+
+}
+
+/*gameWait.jsp wait button values*/
+.wait{align-self: end;
+    text-align: center;
+ grid-area: w;
 }
