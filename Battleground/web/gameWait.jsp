@@ -24,14 +24,16 @@
         Life left: <font size="+2" color="green">${playerLife} </font>
         Gold: <font size="+2" color="#daa520">${gold}</font>
     </div>
-
+        <div class="pimg">
+            <img src="${playerFighterPic}" alt="player image">
+        </div>
     <div class="pstats">
         Health: <mark class="green"> ${playerCurrentHealth} / ${playerBaseHealth} </mark><br>
         Energy:<mark class="yellow"> ${playerCurrentEnergy}</mark> <br>
         Damage: <mark class="red">${playerDamage}</mark> <br>
         Armour: <mark class="blue">${playerArmour} </mark> <br>
         Critical chance: <mark class="orange">${playerCriticalChance} </mark><br>
-        Dodge chance:<mark class="purple"> ${playerDodgeCe}</mark> <br>
+        Dodge chance:<mark class="purple"> ${playerDodgeChance}</mark> <br>
         ${playerDodged}<br>
     </div>
     <div class="oability">
@@ -55,6 +57,9 @@
             Armour: <mark class="blue">${opponentArmour} </mark><br>
             Critical chance:<mark class="orange"> ${opponentCriticalChance}</mark> <br>
             Dodge chance:<mark class="purple"> ${opponentDodgeChance}</mark> <br> <br>
+        </div>
+        <div class="oimg">
+            <img src="${opponentFighterPic}" alt="player image">
         </div>
 </div>
 </div>

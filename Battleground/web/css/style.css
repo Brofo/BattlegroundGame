@@ -131,7 +131,7 @@ h1 {
 }
 
 /*gameReady.jsp background scroll values*/
-.bs{
+.wbs{
     margin-left: auto;
     margin-right: auto;
     position: absolute;
@@ -140,6 +140,40 @@ h1 {
     z-index: 1;
 }
 
+/*gameReady.jsp background scroll image values*/
+.wbs img{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*gameReady.jsp background scroll values*/
+.bs{
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    width: 190vh;
+    height: 100vh;
+    z-index: 1;
+}
+.bs input{
+    box-shadow:inset 0px 1px 3px 0px #91b8b3;
+    background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    background-color:#768d87;
+    border-radius:5px;
+    border:1px solid #566963;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Dalek;
+    font-size:15px;
+    padding:11px 23px;
+    text-decoration:none;
+    text-shadow:0px -1px 0px #2b665e;
+}
 /*gameReady.jsp background scroll image values*/
 .bs img{
     margin-left: auto;
@@ -152,16 +186,26 @@ h1 {
 
 /*gameReady.jsp grid values*/
 .readygrid{
+    position: relative;
     height: 100vh;
     z-index: 2;
-     display: grid;
-     grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
-     grid-template-rows:1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 2.3fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr 1fr 1fr 1fr  1fr 2.3fr;
+    grid-template-rows:1.3fr 1fr 1fr 1fr 1fr 0.5fr 1.5fr 1fr 1fr 1fr 1fr 1.3fr;
     grid-template-areas:
-    ". pn . on ."
-    ". pc . oc ."
-    ". pc vs oc ."
-    ". pc rdy oc .";
+            ". . . . . . . . . . . . . ."
+            ". pn pn pn pn pn . . on on on on on ."
+            ". pc pc pc pc pc . . oc oc oc oc oc ."
+            ". pc pc pc pc pc . . oc oc oc oc oc ."
+            ". pc pc pc pc pc vs vs oc oc oc oc oc ."
+            ". pc pc pc pc pc vs vs oc oc oc oc oc ."
+            ". pc pc pc pc pc vs vs oc oc oc oc oc ."
+            ". pc pc pc pc pc . . oc oc oc oc oc ."
+            ". pc pc pc pc pc . . oc oc oc oc oc ."
+            ". . . . . . rdy rdy . . . . . ."
+            ". . . . . . rdy rdy . . . . . ."
+            ". . . . . . . . . . . . . ."
+;
  }
 
 /*gameReady.jsp player and fighter name values*/
@@ -191,7 +235,7 @@ h1 {
     background-position: center top;
     grid-area: pc;
     z-index: 2;
-    background-image: url("../res/Created Game card.png");
+    background-image: url("../res/Created Game copy.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -201,7 +245,7 @@ h1 {
     background-position: center;
     grid-area: oc;
     z-index: 2;
-    background-image: url("../res/Created Game card.png");
+    background-image: url("../res/Created Game copy.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -218,9 +262,8 @@ h1 {
 
 /*gameReady.jsp Ready values*/
 .ready{
-    align-self: end;
     grid-area: rdy;
-    z-index: 2;
+    z-index: 4;
     width: 100%;
     height: 50%;
 }
@@ -264,6 +307,21 @@ h1 {
     font-size: 2em;
     color:#B0A5A4;
 }
+/*gameAction.jsp/gameWait.jsp Player image values*/
+.pimg {
+    grid-column: 3/span 5;
+    grid-row: 4/span 6;
+    z-index: 4;
+    width: 16em;
+    height: 10rem;
+}
+.pimg img{
+    display: block;
+    width: 14%;
+    height: 19%;
+    object-fit: contain;
+}
+
 /*gameAction.jsp/gameWait.jsp Player, fighter stats values*/
 .pstats{
     font-family: titleFont;
@@ -318,7 +376,7 @@ mark.purple{
     background-repeat: no-repeat;
     background-size: cover;
     grid-area: atc1;
-    z-index: 3;
+    z-index: 5;
     text-align: center;
 }
 
@@ -326,7 +384,7 @@ mark.purple{
 .atc1stat{
     text-align: center;
    grid-area: atc1s;
-    z-index: 3;
+    z-index: 5;
 }
 
 /*gameAction.jsp second attack button values*/
@@ -336,7 +394,7 @@ mark.purple{
     background-repeat: no-repeat;
     background-size: cover;
     grid-area: atc2;
-    z-index: 3;
+    z-index: 5;
     text-align: center;
 }
 
@@ -344,7 +402,7 @@ mark.purple{
 .atc2stat{
     text-align: center;
     grid-area: atc2s;
-    z-index: 3;
+    z-index: 5;
 }
 
 /*gameAction.jsp third attack button values*/
@@ -354,7 +412,7 @@ mark.purple{
     background-repeat: no-repeat;
     background-size: cover;
     grid-area: atc3;
-    z-index: 3;
+    z-index: 5;
     text-align: center;
 }
 
@@ -362,7 +420,7 @@ mark.purple{
 .atc3stat{
     text-align: center;
     grid-area: atc3s;
-    z-index: 3;
+    z-index: 5;
 }
 
 /*gameAction.jsp fourth attack button values*/
@@ -372,7 +430,7 @@ mark.purple{
     background-repeat: no-repeat;
     background-size: cover;
     grid-area: atc4;
-    z-index: 6;
+    z-index: 5;
     text-align: center;
 }
 
@@ -380,7 +438,7 @@ mark.purple{
 .atc4stat{
     text-align: center;
     grid-area: atc4s;
-    z-index: 3;
+    z-index: 5;
 }
 
 /*gameAction.jsp text that pops up when you dont have enough energy to use an attack values*/
@@ -407,6 +465,21 @@ mark.purple{
     color:#B0A5A4;
 }
 
+/*gameAction.jsp/gameWait.jsp Player image values*/
+.oimg {
+    grid-column: 10/span 12;
+    grid-row: 4/span 6;
+    z-index: 4;
+    width: 16em;
+    height: 10rem;
+}
+.oimg img{
+    display: block;
+    width: 14%;
+    height: 19%;
+    object-fit: contain;
+}
+
 /*gameAction.jsp/gameWait.jsp  opponent, fighter stats values*/
 .ostats{
     font-family: titleFont;
@@ -422,4 +495,164 @@ mark.purple{
 .wait{align-self: end;
     text-align: center;
  grid-area: w;
+    z-index: 5;
+}
+
+/*fightOver.jsp, mysteryChest.jsp mysteryChestGold.jsp, mysteryChestItem.jsp centers and adjust values*/
+.fotext{
+    top: 32%;
+    position: relative;
+    font-family: titleFont;
+    font-size: 2rem;
+    color: #75706D;
+    text-align: center;
+    z-index: 2;
+}
+
+/*store.jsp Grid values*/
+.storegrid{
+    position: relative;
+    height: 100vh;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr 1fr 1fr 1.4fr;
+    grid-template-rows:1.2fr 1fr 1fr 1fr 1fr 1fr 0.4fr;
+    grid-template-areas:
+            ". . . . . . . ."
+            ". . . t t . . ."
+            ". . . g g . . ."
+            ". i1 i2 i3 i4 i5 i6 ."
+            ". i7 i8 i9 i10 i11 i12 ."
+            ". . . . . . . ."
+            ". . . . . . . ."
+;
+}
+/*store.jsp title values*/
+.title{
+    text-align: end;
+    grid-area: t;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1.5rem;
+}
+/*store.jsp information about player gold amount values*/
+.gold{
+    grid-area: g;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+    color:#B0A5A4;
+}
+
+/*store.jsp under here are all the store items values*/
+.item1{
+    grid-area: i1;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item2{
+    grid-area: i2;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item3{
+    grid-area: i3;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item4{
+     grid-area: i4;
+     z-index: 3;
+     text-align: center;
+     font-family: titleFont;
+     font-size: 1rem;
+
+ }
+.item5{
+    grid-area: i5;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item6{
+    grid-area: i6;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item7{
+    grid-area: i7;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item8{
+    grid-area: i8;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item9{
+    grid-area: i9;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item10{
+    grid-area: i10;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item11{
+    grid-area: i11;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 1rem;
+}
+.item12{
+    grid-area: i12;
+    z-index: 3;
+    text-align: center;
+    font-family: titleFont;
+    font-size:1rem;
+}
+
+/*fightOver.jsp grid values*/
+.winnergrid{
+    position: relative;
+    height: 100vh;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+    grid-template-areas:
+            ". . ."
+            ". w ."
+            ". . .";
+}
+.winner{
+    grid-area: w;
+    text-align: center;
+    font-family: titleFont;
+    color: #B0A5A4;
+
+}
+. winner font{
+    font-size: 3em;
 }

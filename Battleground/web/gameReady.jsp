@@ -12,19 +12,43 @@
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div class="bs">
-<img src="res/scrollSide.png"/>
+<div class="wbs">
+<img src="res/scrollSide.png" alt="scroll"/>
 <div class="readygrid">
-    <div class="pcard"></div>
     <div class="ocard"></div>
+    <div class="pcard"></div>
     <div class="vers"></div>
     <div class="pname">${playerName}: ${playerFighter}</div>
     <div class="oname">${opponentName}: ${opponentFighter}</div>
+    <div class="pimg">
+        <img src="${playerFighterPic}" alt="player image">
+    </div>
+    <div class="pstats">
+        Health: <mark class="green"> ${playerCurrentHealth} / ${playerBaseHealth} </mark><br>
+        Energy:<mark class="yellow"> ${playerCurrentEnergy}</mark> <br>
+        Damage: <mark class="red">${playerDamage}</mark> <br>
+        Armour: <mark class="blue">${playerArmour} </mark> <br>
+        Critical chance: <mark class="orange">${playerCriticalChance} </mark><br>
+        Dodge chance:<mark class="purple"> ${playerDodgeChance}</mark> <br>
+        ${playerDodged}<br>
+    </div>
     <div class="ready">
     <form action="servlets.game.PlayersReadyServlet" method="get">
         <input type="image" src="res/Ready.png">
-       </div>
     </form>
+    </div>
+    <div class="ostats">
+        Health:<mark class="green"> ${opponentCurrentHealth} / ${opponentBaseHealth} </mark><br>
+        Energy:<mark class="yellow"> ${opponentCurrentEnergy}</mark> <br>
+        Damage:<mark class="red"> ${opponentDamage}</mark> <br>
+        Armour: <mark class="blue">${opponentArmour} </mark><br>
+        Critical chance:<mark class="orange"> ${opponentCriticalChance}</mark> <br>
+        Dodge chance:<mark class="purple"> ${opponentDodgeChance}</mark>
+    </div>
+
+    <div class="oimg">
+        <img src="${opponentFighterPic}" alt="player image">
+    </div>
     </div>
     </div>
 </body>
