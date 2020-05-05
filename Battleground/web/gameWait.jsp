@@ -37,9 +37,9 @@
         ${playerDodged}<br>
     </div>
     <div class="oability">
-    ${playerCurrentAbility}<br>
-    ${playerCritical_hit} <br>
-    ${opponentDodged}
+        <font size="+3" color="#b22222"><b>${playerCurrentAbility}</b></font><br>
+        <font size="+2" color="#daa520">${playerCritical_hit}</font><br>
+        <font size="+2" color="#1e90ff">${opponentDodged}</font><br>
 </div>
         <div class="wait">
     <form action="servlets.game.WaitForTurnServlet" method="get">

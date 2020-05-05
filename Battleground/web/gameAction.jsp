@@ -35,7 +35,6 @@
         Armour: <mark class="blue">${playerArmour} </mark> <br>
         Critical chance: <mark class="orange">${playerCriticalChance} </mark><br>
         Dodge chance:<mark class="purple"> ${playerDodgeChance}</mark> <br>
-       ${playerDodged}<br>
 </div>
     <div class="atc1">
         <form action="servlets.game.UseAbilityServlet" method="get">
@@ -75,11 +74,12 @@
       </div>
 
     <div class="noenergy">
-     ${notEnoughEnergyError}
+        <font size="+1" color="red">${notEnoughEnergyError}</font>
 </div>
     <div class="oability">
-              ${opponentCurrentAbility}<br>
-             ${opponentCritical_hit}<br>
+        <font size="+3" color="#b22222"><b>${opponentCurrentAbility}</b></font><br>
+        <font size="+2" color="#daa520">${opponentCritical_hit}</font><br>
+        <font size="+2" color="#1e90ff">${playerDodged}</font><br>
 </div>
     <div class="foname">
     ${opponentName} [${opponentFighter}] Life left: <font size="+2" color="green">${opponentLife}</font> <br>
