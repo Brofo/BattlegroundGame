@@ -12,7 +12,12 @@
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <font size="+2">The winner of the fight is </font> <font size="+4" color="#b22222">${winnerName}</font><br>
+<div class="bs">
+    <img src="res/scrollSide.png"/>
+
+
+    <div class="fotext">
+    <font size="+2">The winner of the fight is </font> <br><font size="+4" color="#b22222">${winnerName}</font><br>
     ${loserName} has <font size="+2" color="green"> ${loserLife} </font> live(s) left.<br>
     ${winnerName} has <font size="+2" color="green"> ${winnerLife} </font> live(s) left.<br> <br>
 
@@ -21,6 +26,7 @@
     <form action="mysteryChest.jsp">
         <input type="submit" value="Continue">
     </form>
-
+    </div>
+</div>
 </body>
 </html>
