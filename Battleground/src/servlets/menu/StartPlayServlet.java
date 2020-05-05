@@ -29,7 +29,7 @@ public class StartPlayServlet extends HttpServlet {
         DbLib db = new DbLib(out);
         CookieFunctionality cf = new CookieFunctionality();
 
-        String playerName = request.getParameter("playerName");
+        String playerName = request.getParameter("playerName").replaceAll(" ", "_");
         String fighterName = request.getParameter("fighterName");
 
         try {
