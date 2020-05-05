@@ -341,7 +341,7 @@ mark.green{
 
 /*gameAction.jsp makes text with mark tag in html yellow*/
 mark.yellow{
-    color: goldenrod;
+    color: yellow;
     background: none;
 }
 
