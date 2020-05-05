@@ -27,11 +27,14 @@ public class StartPlayServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         DbLib db = new DbLib(out);
+        CookieFunctionality cf = new CookieFunctionality();
 
         String playerName = request.getParameter("playerName");
         String fighterName = request.getParameter("fighterName");
 
         try {
+            cf.deleteAllCookies(request, response); //Delete all existing cookies.
+
             String playerID = db.registerPlayerInDB(playerName, fighterName);
 
             Cookie playerIDCookie = new Cookie("playerID", playerID);
