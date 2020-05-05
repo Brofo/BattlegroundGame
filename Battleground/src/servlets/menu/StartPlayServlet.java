@@ -33,8 +33,6 @@ public class StartPlayServlet extends HttpServlet {
         String fighterName = request.getParameter("fighterName");
 
         try {
-            cf.deleteAllCookies(request, response); //Delete all existing cookies.
-
             String playerID = db.registerPlayerInDB(playerName, fighterName);
 
             Cookie playerIDCookie = new Cookie("playerID", playerID);
