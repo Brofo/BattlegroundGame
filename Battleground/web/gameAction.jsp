@@ -83,7 +83,7 @@
 </div>
     <div class="foname">
         <font color="#b22222">${opponentName} [${opponentFighter}]</font>
-        Life left: <font size="+2" color="green">${opponentLife}</font> <br>
+        Life left: <font size="+4" color="green">${opponentLife}</font> <br>
 </div>
     <div class="ostats">
         Health:<mark class="green"> ${opponentCurrentHealth} / ${opponentBaseHealth} </mark><br>
