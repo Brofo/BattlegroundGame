@@ -18,8 +18,8 @@
     <div class="ocard"></div>
     <div class="pcard"></div>
     <div class="vers"></div>
-    <div class="pname">${playerName}: ${playerFighter}</div>
-    <div class="oname">${opponentName}: ${opponentFighter}</div>
+    <div class="pname"><font color="#b22222">${playerName}: ${playerFighter}</font></div>
+    <div class="oname"><font color="#b22222">${opponentName}: ${opponentFighter}</font></div>
     <div class="pimg">
         <img src="${playerFighterPic}" alt="player image">
     </div>
@@ -30,7 +30,6 @@
         Armour: <mark class="blue">${playerArmour} </mark> <br>
         Critical chance: <mark class="orange">${playerCriticalChance} </mark><br>
         Dodge chance:<mark class="purple"> ${playerDodgeChance}</mark> <br>
-        ${playerDodged}<br>
     </div>
     <div class="ready">
     <form action="servlets.game.PlayersReadyServlet" method="get">

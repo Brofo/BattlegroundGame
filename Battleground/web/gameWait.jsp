@@ -20,9 +20,9 @@
         <div class="ocard"></div>
 
 
-        <div class="fpname"> <font size="+2">${playerName} [${playerFighter}]</font>
-        Life left: <font size="+2" color="green">${playerLife} </font>
-        Gold: <font size="+2" color="#daa520">${gold}</font>
+        <div class="fpname"> <font color="#b22222">${playerName} [${playerFighter}]</font>
+        Life left: <font size="+4" color="green">${playerLife} </font>
+        Gold: <font size="+4" color="#daa520">${gold}</font>
     </div>
         <div class="pimg">
             <img src="${playerFighterPic}" alt="player image">
@@ -48,7 +48,7 @@
     </div>
 
 <div class="foname">
-    <font size="+2">  ${opponentName} [${opponentFighter}]</font> Life left: <font size="+2" color="green">${opponentLife}</font> <br>
+    <font color="#b22222">  ${opponentName} [${opponentFighter}]</font> Life left: <font size="+4" color="green"> ${opponentLife}</font> <br>
 </div>
         <div class="ostats">
             Health:<mark class="green"> ${opponentCurrentHealth} / ${opponentBaseHealth} </mark><br>
