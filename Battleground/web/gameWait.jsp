@@ -12,40 +12,56 @@
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div class="playerFighter">
-    <font size="+2">${playerName} [${playerFighter}]</font>
-    Life left: <font size="+2" color="green">${playerLife} </font>
-    Gold: <font size="+2" color="#daa520">${gold}</font><br>
+<div class="bs">
+    <img src="res/scrollSide.png"/>
+    <div class="fightgrid">
+        <div class="vers"></div>
+        <div class="pcard"></div>
+        <div class="ocard"></div>
 
-    Health: ${playerCurrentHealth} / ${playerBaseHealth} <br>
-    Energy: ${playerCurrentEnergy} <br>
-    Damage: ${playerDamage} <br>
-    Armour: ${playerArmour} <br>
-    Critical chance: ${playerCriticalChance} <br>
-    Dodge chance: ${playerDodgeChance} <br>
 
-    <font size="+3" color="#b22222">${playerCurrentAbility}</font><br>
-    <font size="+3" color="#daa520">${playerCritical_hit}</font><br>
-
+        <div class="fpname"> <font color="#b22222">${playerName} [${playerFighter}]</font>
+        Life left: <font size="+4" color="green">${playerLife} </font>
+        Gold: <font size="+4" color="#daa520">${gold}</font>
+    </div>
+        <div class="pimg">
+            <img src="${playerFighterPic}" alt="player image">
+        </div>
+    <div class="pstats">
+        Health: <mark class="green"> ${playerCurrentHealth} / ${playerBaseHealth} </mark><br>
+        Energy:<mark class="yellow"> ${playerCurrentEnergy}</mark> <br>
+        Damage: <mark class="red">${playerDamage}</mark> <br>
+        Armour: <mark class="blue">${playerArmour} </mark> <br>
+        Critical chance: <mark class="orange">${playerCriticalChance} </mark><br>
+        Dodge chance:<mark class="purple"> ${playerDodgeChance}</mark> <br>
+        ${playerDodged}<br>
+    </div>
+    <div class="oability">
+        <font size="+3" color="#b22222"><b>${playerCurrentAbility}</b></font><br>
+        <font size="+2" color="#daa520">${playerCritical_hit}</font><br>
+        <font size="+2" color="#1e90ff">${opponentDodged}</font><br>
+</div>
+        <div class="wait">
     <form action="servlets.game.WaitForTurnServlet" method="get">
-        <font size="+1">Your opponent is selecting an attack. <br>
-                    Click here to wait for your turn:
-        </font>
         <input type="submit" value="Wait for my turn">
     </form>
-
-</div>
-
-    <div class="opponentFighter">
-        <font size="+3" color="#1e90ff">${opponentDodged}</font><br>
-
-        <font size="+2">${opponentName} [${opponentFighter}]</font> Life left: ${opponentLife} <br>
-        Health: ${opponentCurrentHealth} / ${opponentBaseHealth} <br>
-        Energy: ${opponentCurrentEnergy} <br>
-        Damage: ${opponentDamage} <br>
-        Armour: ${opponentArmour} <br>
-        Critical chance: ${opponentCriticalChance} <br>
-        Dodge chance: ${opponentDodgeChance} <br> <br>
     </div>
+
+<div class="foname">
+    <font color="#b22222">  ${opponentName} [${opponentFighter}]</font> Life left: <font size="+4" color="green"> ${opponentLife}</font> <br>
+</div>
+        <div class="ostats">
+            Health:<mark class="green"> ${opponentCurrentHealth} / ${opponentBaseHealth} </mark><br>
+            Energy:<mark class="yellow"> ${opponentCurrentEnergy}</mark> <br>
+            Damage:<mark class="red"> ${opponentDamage}</mark> <br>
+            Armour: <mark class="blue">${opponentArmour} </mark><br>
+            Critical chance:<mark class="orange"> ${opponentCriticalChance}</mark> <br>
+            Dodge chance:<mark class="purple"> ${opponentDodgeChance}</mark> <br> <br>
+        </div>
+        <div class="oimg">
+            <img src="${opponentFighterPic}" alt="player image">
+        </div>
+</div>
+</div>
 </body>
 </html>

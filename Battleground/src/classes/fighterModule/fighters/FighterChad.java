@@ -56,6 +56,7 @@ public class FighterChad extends Fighter {
         this.armour = 0;
         this.critical_chance = 15;
         this.dodge_chance = 0;
+        this.fighterPic = "css/fighterPics/chadPic.jpg";
     }
 
     @Override

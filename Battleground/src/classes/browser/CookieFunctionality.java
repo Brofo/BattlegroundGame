@@ -42,10 +42,10 @@ public class CookieFunctionality {
     }
 
     /**
-     * This method will delete all cookies in the array of cookies. May need some modification
-     * if it will be used later.
+     * This method will delete all cookies in the array of cookies.
      */
-    public void deleteAllCookies(Cookie cookies[], HttpServletResponse response) {
+    public void deleteAllCookies(HttpServletRequest request, HttpServletResponse response) {
+        Cookie[] cookies = request.getCookies();
         if (cookies.length > 0) {
             for (Cookie cookie : cookies) {
                 Cookie overwriteCookie = new Cookie(cookie.getName(), "");

@@ -27,6 +27,7 @@ public abstract class Fighter {
     double armour = 0;
     double critical_chance = 0;
     double dodge_chance = 0;
+    String fighterPic; //Path to where the fighter's picture is.
 
     public Fighter(PrintWriter out, String playerID, String gameID) {
         this.gameID = gameID;
@@ -102,6 +103,7 @@ public abstract class Fighter {
     public double getDodge_chance() {
         return dodge_chance;
     }
+    public String getFighterPic() {return fighterPic;}
 
     /**
      * Based on the ability that was chosen by the player, execute the ability.

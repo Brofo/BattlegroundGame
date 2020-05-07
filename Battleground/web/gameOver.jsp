@@ -12,7 +12,21 @@
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<div class="bs">
+    <img src="res/scrollSide.png" alt="scroll"/>
+    <div class="winnergrid">
+<div class="winner">
     <font size="+3">Game over. The winner is</font><br>
     <font size="+5" color="#b22222">${winnerName}</font>
+
+        <br>
+    <div class="mainm">
+    <form action="index.jsp" method="get">
+        <input type="submit" value="main menu">
+    </form>
+    </div>
+</div>
+</div>
+</div>
 </body>
 </html>

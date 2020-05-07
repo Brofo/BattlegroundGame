@@ -12,6 +12,9 @@
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<div class="bs">
+    <img src="res/scrollSide.png"/>
+    <div class="fotext">
     You received:<br>
     <font size="+5" color="#daa520">${mysteryGold} </font>
     <font size="+3"> Gold!</font> <br>
@@ -19,5 +22,7 @@
         <input type="submit" value="Claim">
         <input type="hidden" value="${mysteryGold}" name="acquiredGold">
     </form>
+    </div>
+</div>
 </body>
 </html>
