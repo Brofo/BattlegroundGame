@@ -25,7 +25,8 @@ public class SelectFighter {
             case "Incel" : return new FighterIncel(out, playerID, gameID);
             case "Dwight" : return new FighterDwight(out, playerID, gameID);
             case "Rick" : return new FighterRick(out, playerID, gameID);
-            case "Gollum" : return new FighterJarjar(out, playerID, gameID);
+            case "Gollum" : return new FighterGollum(out, playerID, gameID);
+            case "JarJar" : return new FighterJarjar(out, playerID, gameID);
         }
 
         System.out.println("No fighter with that name. Add fighter to classes.fighters.SelectFighter");
