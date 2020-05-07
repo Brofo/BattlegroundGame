@@ -33,7 +33,7 @@ public class FighterRick extends Fighter {
         abilityTwoDamage = damage * 2.6;
         abilityTwoEnergy = 8;
         abilityThreeDamage = damage * 6.6;
-        abilityThreeEnergy = 14;
+        abilityThreeEnergy = 22;
 
         //Add the name and description of each ability for this fighter.
         //The key should ALWAYS be basicAttack, abilityOne, abilityTwo, abilityThree.
@@ -60,6 +60,7 @@ public class FighterRick extends Fighter {
         this.armour = 0;
         this.critical_chance = 25;
         this.dodge_chance = 0;
+        this.fighterPic = "css/fighterPics/rickPic.PNG";
     }
 
     @Override
