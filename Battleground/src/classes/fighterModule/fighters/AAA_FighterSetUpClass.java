@@ -1,10 +1,10 @@
 package classes.fighterModule.fighters;
 
-import classes.fighterModule.AbilityDescription;
+        import classes.fighterModule.AbilityDescription;
 
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.HashMap;
+        import java.io.PrintWriter;
+        import java.sql.SQLException;
+        import java.util.HashMap;
 
 /**
  * This is a subclass of Fighter.
