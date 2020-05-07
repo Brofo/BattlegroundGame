@@ -1,15 +1,15 @@
 package classes.fighterModule.fighters;
 
-        import classes.fighterModule.AbilityDescription;
+import classes.fighterModule.AbilityDescription;
 
-        import java.io.PrintWriter;
-        import java.sql.SQLException;
-        import java.util.HashMap;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.HashMap;
 
 /**
  * This is a subclass of Fighter.
  */
-public class AAA_FighterSetUpClass extends Fighter {
+public class FighterRick extends Fighter {
     private HashMap<String, AbilityDescription> abilityMap;
 
     private double abilityOneDamage;
@@ -19,7 +19,7 @@ public class AAA_FighterSetUpClass extends Fighter {
     private int abilityTwoEnergy;
     private int abilityThreeEnergy;
 
-    public AAA_FighterSetUpClass(PrintWriter out, String playerID, String gameID) {
+    public FighterRick(PrintWriter out, String playerID, String gameID) {
         super(out, playerID, gameID);
 
         //Every time we get a new fighter object, we want to make sure the fighter
@@ -28,21 +28,21 @@ public class AAA_FighterSetUpClass extends Fighter {
         syncFighterWithDB();
 
         //Ability attributes is calculated here.
-        abilityOneDamage = damage * 0;
-        abilityOneEnergy = 0;
-        abilityTwoDamage = damage * 0;
-        abilityTwoEnergy = 0;
-        abilityThreeDamage = damage * 0;
-        abilityThreeEnergy = 0;
+        abilityOneDamage = damage * 1.5;
+        abilityOneEnergy = 4;
+        abilityTwoDamage = damage * 2.6;
+        abilityTwoEnergy = 8;
+        abilityThreeDamage = damage * 6.6;
+        abilityThreeEnergy = 14;
 
         //Add the name and description of each ability for this fighter.
         //The key should ALWAYS be basicAttack, abilityOne, abilityTwo, abilityThree.
         //The format of the description of the ability should be similar.
         abilityMap = new HashMap<>();
-        abilityMap.put("basicAttack", new AbilityDescription("x", "Basic Attack. [" + damage + " damage]", 0));
-        abilityMap.put("abilityOne", new AbilityDescription("x", "[" + abilityOneDamage + " damage]", abilityOneEnergy));
-        abilityMap.put("abilityTwo", new AbilityDescription("x", "[" + abilityTwoDamage + "damage]", abilityTwoEnergy));
-        abilityMap.put("abilityThree", new AbilityDescription("x", "[" + abilityThreeDamage + " damage]", abilityThreeEnergy));
+        abilityMap.put("basicAttack", new AbilityDescription("Blaster", "Basic Attack. [" + damage + " damage]", 0));
+        abilityMap.put("abilityOne", new AbilityDescription("Portal backstab", "[" + abilityOneDamage + " damage]", abilityOneEnergy));
+        abilityMap.put("abilityTwo", new AbilityDescription("Hungover feeces throw", "[" + abilityTwoDamage + "damage]", abilityTwoEnergy));
+        abilityMap.put("abilityThree", new AbilityDescription("Neutrino bomb", "[" + abilityThreeDamage + " damage]", abilityThreeEnergy));
     }
 
     /**
@@ -52,15 +52,14 @@ public class AAA_FighterSetUpClass extends Fighter {
      */
     @Override
     public void setFighterToBaseValues() {
-        this.baseHealth = 1000;
+        this.baseHealth = 600;
         this.currentHealth = baseHealth;
-        this.baseEnergy = 5;
+        this.baseEnergy = 7;
         this.currentEnergy = baseEnergy;
-        this.damage = 50;
+        this.damage = 90;
         this.armour = 0;
-        this.critical_chance = 0;
+        this.critical_chance = 25;
         this.dodge_chance = 0;
-        this.fighterPic = "css/fighterPics/fighterPic.jpg";
     }
 
     @Override

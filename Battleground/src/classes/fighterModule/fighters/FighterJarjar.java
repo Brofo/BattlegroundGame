@@ -1,15 +1,15 @@
 package classes.fighterModule.fighters;
 
-        import classes.fighterModule.AbilityDescription;
+import classes.fighterModule.AbilityDescription;
 
-        import java.io.PrintWriter;
-        import java.sql.SQLException;
-        import java.util.HashMap;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.HashMap;
 
 /**
  * This is a subclass of Fighter.
  */
-public class AAA_FighterSetUpClass extends Fighter {
+public class FighterJarjar extends Fighter {
     private HashMap<String, AbilityDescription> abilityMap;
 
     private double abilityOneDamage;
@@ -19,7 +19,7 @@ public class AAA_FighterSetUpClass extends Fighter {
     private int abilityTwoEnergy;
     private int abilityThreeEnergy;
 
-    public AAA_FighterSetUpClass(PrintWriter out, String playerID, String gameID) {
+    public FighterJarjar(PrintWriter out, String playerID, String gameID) {
         super(out, playerID, gameID);
 
         //Every time we get a new fighter object, we want to make sure the fighter
@@ -28,21 +28,21 @@ public class AAA_FighterSetUpClass extends Fighter {
         syncFighterWithDB();
 
         //Ability attributes is calculated here.
-        abilityOneDamage = damage * 0;
-        abilityOneEnergy = 0;
-        abilityTwoDamage = damage * 0;
-        abilityTwoEnergy = 0;
-        abilityThreeDamage = damage * 0;
-        abilityThreeEnergy = 0;
+        abilityOneDamage = damage * 3;
+        abilityOneEnergy = 4;
+        abilityTwoDamage = damage * 4;
+        abilityTwoEnergy = 7;
+        abilityThreeDamage = damage * 10;
+        abilityThreeEnergy = 20;
 
         //Add the name and description of each ability for this fighter.
         //The key should ALWAYS be basicAttack, abilityOne, abilityTwo, abilityThree.
         //The format of the description of the ability should be similar.
         abilityMap = new HashMap<>();
-        abilityMap.put("basicAttack", new AbilityDescription("x", "Basic Attack. [" + damage + " damage]", 0));
-        abilityMap.put("abilityOne", new AbilityDescription("x", "[" + abilityOneDamage + " damage]", abilityOneEnergy));
-        abilityMap.put("abilityTwo", new AbilityDescription("x", "[" + abilityTwoDamage + "damage]", abilityTwoEnergy));
-        abilityMap.put("abilityThree", new AbilityDescription("x", "[" + abilityThreeDamage + " damage]", abilityThreeEnergy));
+        abilityMap.put("basicAttack", new AbilityDescription("Spear", "Basic Attack. [" + damage + " damage]", 0));
+        abilityMap.put("abilityOne", new AbilityDescription("Clumsy attack", "[" + abilityOneDamage + " damage]" + "[50 selfDamage]",  abilityOneEnergy));
+        abilityMap.put("abilityTwo", new AbilityDescription("Stupid kick", "[" + abilityTwoDamage + "damage]" + "[100 selfDamage]", abilityTwoEnergy));
+        abilityMap.put("abilityThree", new AbilityDescription("x", "[" + abilityThreeDamage + " damage]" + "[400 selfDamage]", abilityThreeEnergy));
     }
 
     /**
@@ -54,13 +54,12 @@ public class AAA_FighterSetUpClass extends Fighter {
     public void setFighterToBaseValues() {
         this.baseHealth = 1000;
         this.currentHealth = baseHealth;
-        this.baseEnergy = 5;
+        this.baseEnergy = 10;
         this.currentEnergy = baseEnergy;
-        this.damage = 50;
-        this.armour = 0;
-        this.critical_chance = 0;
-        this.dodge_chance = 0;
-        this.fighterPic = "css/fighterPics/fighterPic.jpg";
+        this.damage = 60;
+        this.armour = 10;
+        this.critical_chance = 15;
+        this.dodge_chance = 10;
     }
 
     @Override
@@ -74,6 +73,8 @@ public class AAA_FighterSetUpClass extends Fighter {
         if (this.currentEnergy >= abilityOneEnergy) {
             //Enough energy. Use ability (this ability deals damage):
             dealDamageToOpponent(abilityOneDamage);
+            String newHealth = Double.toString(this.currentHealth - 50);
+            action.changeOwnValue(playerID, "currentHealth", newHealth);
             //Use the energy the ability cost:
             useEnergy(abilityOneEnergy);
             //Return true because we have enough energy, and the ability have been used.
@@ -87,6 +88,8 @@ public class AAA_FighterSetUpClass extends Fighter {
     public boolean abilityTwo() throws SQLException {
         if (this.currentEnergy >= abilityTwoEnergy) {
             dealDamageToOpponent(abilityTwoDamage);
+            String newHealth = Double.toString(this.currentHealth - 100);
+            action.changeOwnValue(playerID, "currentHealth", newHealth);
             useEnergy(abilityTwoEnergy);
             return true;
         }
@@ -97,6 +100,8 @@ public class AAA_FighterSetUpClass extends Fighter {
     public boolean abilityThree() throws SQLException {
         if (this.currentEnergy >= abilityThreeEnergy) {
             dealDamageToOpponent(abilityThreeDamage);
+            String newHealth = Double.toString(this.currentHealth - 400);
+            action.changeOwnValue(playerID, "currentHealth", newHealth);
             useEnergy(abilityThreeEnergy);
             return true;
         }
