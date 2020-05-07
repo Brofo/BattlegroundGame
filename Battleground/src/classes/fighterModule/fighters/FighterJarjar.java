@@ -60,6 +60,7 @@ public class FighterJarjar extends Fighter {
         this.armour = 10;
         this.critical_chance = 15;
         this.dodge_chance = 10;
+        this.fighterPic = "css/fighterPics/jarJarPic.jpg";
     }
 
     @Override
