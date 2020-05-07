@@ -32,6 +32,11 @@
         <select id="fighter" name="fighterName">
             <option name="Chad">Chad</option>
             <option name="Gopnik">Gopnik</option>
+            <option name="Incel">Incel</option>
+            <option name="Dwight">Dwight</option>
+            <option name="Rick">Rick</option>
+            <option name="Gollum">Gollum</option>
+            <option name="JarJar">JarJar</option>
         </select>
         </div>
         <div class="Start">

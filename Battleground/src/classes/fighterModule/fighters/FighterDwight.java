@@ -58,10 +58,11 @@ public class FighterDwight extends Fighter
         this.currentHealth = baseHealth;
         this.baseEnergy = 6;
         this.currentEnergy = baseEnergy;
-        this.damage = 45;
+        this.damage = 50;
         this.armour = 15;
         this.critical_chance = 15;
         this.dodge_chance = 0;
+        this.fighterPic = "css/fighterPics/dwightPic.PNG";
     }
 
     @Override
