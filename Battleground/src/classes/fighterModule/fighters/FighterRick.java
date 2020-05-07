@@ -33,7 +33,7 @@ public class FighterRick extends Fighter {
         abilityTwoDamage = damage * 2.6;
         abilityTwoEnergy = 8;
         abilityThreeDamage = damage * 6.6;
-        abilityThreeEnergy = 14;
+        abilityThreeEnergy = 22;
 
         //Add the name and description of each ability for this fighter.
         //The key should ALWAYS be basicAttack, abilityOne, abilityTwo, abilityThree.

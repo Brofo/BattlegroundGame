@@ -42,7 +42,7 @@ public class FighterJarjar extends Fighter {
         abilityMap.put("basicAttack", new AbilityDescription("Spear", "Basic Attack. [" + damage + " damage]", 0));
         abilityMap.put("abilityOne", new AbilityDescription("Clumsy attack", "[" + abilityOneDamage + " damage]" + "[50 selfDamage]",  abilityOneEnergy));
         abilityMap.put("abilityTwo", new AbilityDescription("Stupid kick", "[" + abilityTwoDamage + "damage]" + "[100 selfDamage]", abilityTwoEnergy));
-        abilityMap.put("abilityThree", new AbilityDescription("x", "[" + abilityThreeDamage + " damage]" + "[400 selfDamage]", abilityThreeEnergy));
+        abilityMap.put("abilityThree", new AbilityDescription("MESA", "[" + abilityThreeDamage + " damage]" + "[400 selfDamage]", abilityThreeEnergy));
     }
 
     /**
