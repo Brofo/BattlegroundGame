@@ -10,12 +10,17 @@
 <head>
     <title>Mystery Chest</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
-
 </head>
 <body>
+<div class="bs">
+    <img src="res/scrollSide.png"/>
+    <div class="fotext">
+
     <h1>Mystery Chest</h1>
     <form action="servlets.items.OpenMysteryChestServlet" method="get">
         <input type="submit" value="Open Mystery Chest">
     </form>
+    </div>
+</div>
 </body>
 </html>

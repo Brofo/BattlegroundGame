@@ -1,12 +1,10 @@
 package classes.database;
-
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
-
 /**
  * Class generates ID for player and game.
  */
@@ -14,12 +12,9 @@ public class GenerateID {
     private Random r;
     private Connection con;
     private PrintWriter out;
-
     public GenerateID() {
         r = new Random();
     }
-
-
     /**
      * Generate ID for player. The ID that is returned will always be unique.
      * @return playerID.
@@ -27,15 +22,12 @@ public class GenerateID {
      */
     public String getNewPlayerID() throws SQLException {
         con = new DbTool().logIn(out);
-
         int id = r.nextInt(1000000);
         String playerID = Integer.toString(id);
-
         try {
             String stmt = "SELECT playerID FROM battlegroundDB.player";
             PreparedStatement pst = con.prepareStatement(stmt);
             ResultSet result = pst.executeQuery();
-
             result.beforeFirst();
             while(result.next()) {
                 String idInDB = result.getString(1);
@@ -55,11 +47,8 @@ public class GenerateID {
                 con.close();
             }
         }
-
         return null;
     }
-
-
     /**
      * Generates ID for a game. Does exactly the same as getNewPlayerID(), except
      * the gameID returns a lower number. (To make it easier for each player).
@@ -68,15 +57,12 @@ public class GenerateID {
      */
     public String getNewGameID() throws SQLException {
         con = new DbTool().logIn(out);
-
         int id = r.nextInt(10000);
         String gameID = Integer.toString(id);
-
         try {
             String stmt = "SELECT gameID FROM battlegroundDB.game";
             PreparedStatement pst = con.prepareStatement(stmt);
             ResultSet result = pst.executeQuery();
-
             result.beforeFirst();
             while(result.next()) {
                 String idInDB = result.getString(1);
@@ -96,8 +82,6 @@ public class GenerateID {
                 con.close();
             }
         }
-
         return null;
     }
-
 }

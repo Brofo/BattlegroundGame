@@ -11,15 +11,24 @@
     <title>Game created</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
+<div class="scroll">
 <body>
-    <font size="+2">You have successfully created a game.<br>
+|     <div class="Cmenu">
+    <font >You have successfully created a game.<br>
                     The game ID is</font>
-    <font size="+5" color="#b22222">${gameID}</font><br>
-    Send this ID to the person you want to play with. When you're done, enter it here, and click the button: <br>
+    <font  color="#b22222">${gameID}</font><br>
+    <p>Send this ID to the person you want to play with. When you're done, enter it here, and click the button:</p> <br>
 
     <form action="servlets.menu.WaitForPlayerServlet" method="get">
+        <div class="id">
         <input type="text" name="gameID" value=${gameID}>
-        <input type="submit" value="Join Game">
+        </div>
+        <div class="join">
+        <input type="image" src="res/Join.png">
+    </div>
     </form>
+</div>
+
 </body>
+</div>
 </html>

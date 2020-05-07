@@ -12,6 +12,9 @@
     <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<div class="bs">
+    <img src="res/scrollSide.png"/>
+    <div class="fotext">
     You received an item!<br>
     <font size="+5" color="#b22222">${itemName}</font><br>
     This item gives <font size="+2" color="#00008b">+${itemAmount} ${itemAttribute}</font><br>
@@ -26,6 +29,7 @@
         <input type="submit" value="Sell for ${itemSellPrice} gold.">
         <input type="hidden" value="${itemSellPrice}" name="acquiredGold">
     </form>
-
+    </div>
+</div>
 </body>
 </html>

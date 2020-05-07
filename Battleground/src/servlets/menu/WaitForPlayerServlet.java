@@ -53,6 +53,7 @@ public class WaitForPlayerServlet extends HttpServlet {
                 String opponentName = pi.getOpponentAttribute("playerName", playerID, gameID);
                 String opponentFighter = pi.getOpponentAttribute("fighterName", playerID, gameID);
 
+
                 Cookie opponentNameCookie = new Cookie("opponentName", opponentName);
                 opponentNameCookie.setMaxAge(-1); //Cookie is deleted when browser is closed.
                 Cookie opponentFighterCookie = new Cookie("opponentFighter", opponentFighter);
@@ -63,6 +64,7 @@ public class WaitForPlayerServlet extends HttpServlet {
                 addParam.addCookieNameParameters();
                 request.setAttribute("opponentName", opponentName);
                 request.setAttribute("opponentFighter", opponentFighter);
+                addParam.addFighterParameters(playerID, gameID);
                 request.getRequestDispatcher("gameReady.jsp").forward(request, response);
             }
             else {
