@@ -60,6 +60,7 @@ public class FighterRick extends Fighter {
         this.armour = 0;
         this.critical_chance = 25;
         this.dodge_chance = 0;
+        this.fighterPic = "css/fighterPics/rickPic.PNG";
     }
 
     @Override
