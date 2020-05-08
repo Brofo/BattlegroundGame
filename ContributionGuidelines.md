@@ -20,8 +20,9 @@ Branches Explanation
 To report a bug:
 --------------------------------
 
-Firstly have proof that this is a bug, test it and document the reason for the bug. Either create a soulution or contact us via mail(referenced in README).
-Else you can try to request a pull request, this will require solid documentation. 
+Firstly have proof that this is a bug, test it and document the reason for the bug. Either create a soulution or contact us via mail(referenced in README). Bugs can also be discussed in the wiki, which we will check regurarly, this will also inform other contributers of the bug. Else you can try to request a pull request, this will require solid documentation.
 
-To suggest new features, we can be easily contacted on mail(referenced in README). 
-But you are also free to adapt the project however you want, except if this inteferes with the license. 
+To suggest a feature:
+--------------------------------
+
+To suggest new features, we can be easily contacted on mail(referenced in README). Features can also be discussed in the wiki. But you are also free to adapt the project however you want, except if this inteferes with the license. 
