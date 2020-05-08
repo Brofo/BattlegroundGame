@@ -28,6 +28,10 @@ Acknowledgments:
 
 Stackoverflow.com
 
+All sites wich has given information useful to the project.
+
+All sites which has accepted to let us publish our project.
+
 The project is licensed by the GNU General Public License v3.0, please read the license.
 
 Please read
