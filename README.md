@@ -7,6 +7,8 @@ Click here to play the game: http://battlegrounds.games/
 
 Everyone is allowed to fork the project, and use the code for whatever purpose, except using this code to develope closed code project.
 
+If you would like to play the game against yourself to test it, it is important to use two separate browsers, because the game uses cookies to store some of its data. If both games are played in the same browser, the cookies will override, and the game will crash.
+
 Prerequisits to run the project:
 --------------------------------
 You need DBMS to run SQL, such as MySQL: https://www.mysql.com/
