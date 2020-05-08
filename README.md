@@ -41,7 +41,7 @@ Contributing guidelines
 
 Code of conduct
 
-Wiki https://docs.google.com/document/d/1lhnU-fH7x06Zlf5TjzI0aH4xgYugWplGJoh-PVKHwMk/edit?usp=sharing 
+Wiki https://docs.google.com/document/d/1lhnU-fH7x06Zlf5TjzI0aH4xgYugWplGJoh-PVKHwMk/edit?usp=sharing
 For questions and findings.
 
 Contacts: Williamfaaberg@gmail.com , danalexander2005@hotmail.com , Fosssindre@gmail.com
