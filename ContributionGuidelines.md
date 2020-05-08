@@ -6,11 +6,15 @@ By contributing you are accepting that your contribution are licensed by the pro
 
 Branches Explanation
 ----------------------
-*master* - This branch contains the official version of the game.
-*release* - This branch contains the newest version of the game. Will be merged into master when it is officially released. If you want to contribute with a new feature to the newest version of the game, or test out the features from the newest release, you should fork the project from this branch.
-*dev* - This branch contains the code that is under development. When a module in the dev branch is completed, it will be merged into release. If you want to contribute to a module that is being developed, you should fork from the dev branch.
-*feature* - This branch is used to add new features to the game. If you would like to contribute with a new feature, you can make a pull request to the feature branch.
-*bugfix* - This branch is up-to-date with the release branch. If there is a bug, you can fix it and make a pull request to the bugfix branch.
+**master** - This branch contains the official version of the game.
+
+**release** - This branch contains the newest version of the game. Will be merged into master when it is officially released. If you want to contribute with a new feature to the newest version of the game, or test out the features from the newest release, you should fork the project from this branch.
+
+**dev** - This branch contains the code that is under development. When a module in the dev branch is completed, it will be merged into release. If you want to contribute to a module that is being developed, you should fork from the dev branch.
+
+**feature** - This branch is used to add new features to the game. If you would like to contribute with a new feature, you can make a pull request to the feature branch.
+
+**bugfix** - This branch is up-to-date with the release branch. If there is a bug, you can fix it and make a pull request to the bugfix branch.
 
 
 To report a bug:
